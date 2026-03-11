@@ -1,0 +1,15 @@
+---
+import { Button } from "@workspace/ui/components/button"
+import { GithubLogoIcon, YoutubeLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react"
+---
+<footer class="bg-card border-2 border-dotted py-10 relative">
+	<div class="mx-auto container flex justify-between">
+		<p class="text-base/10 text-center text-secondary-foreground uppercase">Sigueme en mis redes sociales: </p>
+		<div class="flex gap-2">
+			<Button variant="outline" className="border-dotted border-2" size="icon-lg"><GithubLogoIcon className="fill-muted-foreground size-8" /> </Button>
+			<Button variant="outline" className="border-dotted border-2" size="icon-lg"><YoutubeLogoIcon className="fill-muted-foreground size-8"/> </Button>
+				<Button variant="outline" className="border-dotted border-2" size="icon-lg"><LinkedinLogoIcon className="fill-muted-foreground size-8"/> </Button>
+		</div>
+	</div>
+	<p class="absolute bottom-0 right-2 font-mono font-italic font-thin text-xs text-foreground/20">- PD: Esta pagina fue hecha en una noche</p>
+</footer>

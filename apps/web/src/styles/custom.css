@@ -1,0 +1,9 @@
+.dotted-background {
+	background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  }
+
+.notch {
+	border-radius: 2rem;
+	corner-shape: notch;
+}
