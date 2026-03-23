@@ -1,0 +1,92 @@
+---
+import Main from "@/layouts/main.astro"
+import { Separator } from "@workspace/ui/components/separator"
+import { DiscIcon, CircleDashedIcon,CheckCircleIcon } from "@phosphor-icons/react"
+---
+
+<Main>
+  <div class="dotted-background min-h-svh w-screen border-b-2 border-dotted">
+    <div class="container mx-auto py-20">
+      <h1 class="font-mono text-5xl font-bold uppercase">Acerca de mi</h1>
+      <div class="my-12 h-1 w-20 border-2 border-primary"></div>
+
+      <div class="border-b-2 border-dotted grid grid-cols-2 gap-5 pb-20">
+	      <div>
+        <span class="flex gap-3">
+          <DiscIcon className="fill-primary" size={32} />
+          <h3 class="font-mono text-2xl font-bold uppercase">Mi perfil</h3>
+        </span>
+        <p class="text-muted-foreground leading-relaxed">
+          Desde ~2017 aprendí programación de manera autodidacta, y en 2018
+          entré a una técnica en programación, graduándome en 2025 con nota
+	  perfecta (10/10) y varios reconocimientos.<br/> Me enfoco en crear sistemas
+          que satisfagan las necesidades de mis clientes, cumpliendo fechas
+	  límites y utilizando servicios distribuidos como Cloudflare. Me adapto
+          rápido a nuevos entornos y aprendo lo necesario para cada proyecto.<br
+											     /><br/>
+          Tengo un interés especial en automatizaciones, programación de gráficos
+          y uso de LLMs especializados.<br /> Me considero un "Power User": uso mi
+          propia distribución Linux Arcteto (basada en Arch) optimizada para eficiencia,
+          con mi propio home server, LLM local, automatizaciones y sistema de backup
+	  de 3 capas que diseñé para proteger mis datos y los de mis clientes.<br/> Además, disfruto cocinar y hacer experimentos en
+          mi tiempo libre.
+	</p>
+	      </div>
+	      <div class="relative border-2 border-dotted bg-card p-10">
+		<CircleDashedIcon className="border-2 absolute -left-3 -top-3 border-dotted bg-primary/10 fill-primary p-2" size="48"/>
+		<CircleDashedIcon className="border-2 absolute -right-3 -top-3 border-dotted bg-primary/10 fill-primary p-2" size="48"/>
+
+		<h4 class="font-mono font-bold uppercase text-xl mb-6">Idiomas</h4>
+
+		<ul class="*:font-mono *:flex *:gap-2 *:font-medium">
+			<li><CheckCircleIcon className="fill-primary" size="24"/>Español - Nativo</li>
+		<li><CheckCircleIcon className="fill-primary" size="24"/>Inglés - Intermedio</li>
+		</ul>
+
+		<CircleDashedIcon className="border-2 absolute -left-3 -bottom-3 border-dotted bg-primary/10 fill-primary p-2" size="48"/>
+		<CircleDashedIcon className="border-2 absolute -right-3 -bottom-3 border-dotted bg-primary/10 fill-primary p-2" size="48"/>
+
+
+	      </div>
+      </div>
+
+      <div class="grid grid-cols-2 border-b-2 py-20 gap-5 border-dotted">
+	<div class="relative border-2 border-dotted bg-card p-10">
+		<CircleDashedIcon className="border-2 absolute -left-3 -top-3 border-dotted bg-primary/10 fill-primary p-2" size="48"/>
+
+
+		<h4 class="font-mono font-bold uppercase text-xl mb-6">Idiomas</h4>
+
+		<ul class="*:font-mono *:flex *:gap-2 *:font-medium">
+			<li><CheckCircleIcon className="fill-primary" size="24"/>Español - Nativo</li>
+		<li><CheckCircleIcon className="fill-primary" size="24"/>Inglés - Intermedio</li>
+		</ul>
+
+		<CircleDashedIcon className="border-2 absolute -left-3 -bottom-3 border-dotted bg-primary/10 fill-primary p-2" size="48"/>
+
+
+
+	</div>
+
+<div class="relative border-2 border-dotted bg-card p-10">
+
+		<CircleDashedIcon className="border-2 absolute -right-3 -top-3 border-dotted bg-primary/10 fill-primary p-2" size="48"/>
+
+		<h4 class="font-mono font-bold uppercase text-xl mb-6">Idiomas</h4>
+
+		<ul class="*:font-mono *:flex *:gap-2 *:font-medium">
+			<li><CheckCircleIcon className="fill-primary" size="24"/>Español - Nativo</li>
+		<li><CheckCircleIcon className="fill-primary" size="24"/>Inglés - Intermedio</li>
+		</ul>
+
+
+		<CircleDashedIcon className="border-2 absolute -right-3 -bottom-3 border-dotted bg-primary/10 fill-primary p-2" size="48"/>
+
+
+	      </div>
+
+
+      </div>
+    </div>
+  </div>
+</Main>

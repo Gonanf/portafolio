@@ -1,72 +1,157 @@
 ---
 import Main from "@/layouts/main.astro"
-import "@/styles/custom.css"
 import { Button } from "@workspace/ui/components/button"
-import { ArrowRightIcon, ApertureIcon, CodeIcon, AtomIcon, RobotIcon, TimerIcon, CloudIcon, CpuIcon } from "@phosphor-icons/react"
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@workspace/ui/components/hover-card"
+import {
+  ArrowRightIcon,
+  ApertureIcon,
+  CodeIcon,
+  AtomIcon,
+  RobotIcon,
+  TimerIcon,
+  CloudIcon,
+  CpuIcon,
+} from "@phosphor-icons/react"
 ---
 
 <Main>
+  <!-- Introduccion -->
+  <div
+    class="dotted-background flex min-h-svh w-screen border-b-2 border-dotted py-32"
+  >
+    <div class="container mx-auto">
+      <div class="flex justify-between">
+        <div class="flex flex-col gap-6">
+          <div
+            class="w-fit border-2 border-dotted bg-accent/50 p-2 font-bold text-secondary-foreground uppercase"
+          >
+            <h1 class="text-center font-mono">
+              ¡Hola! Soy Gabriel Solotorevsky
+            </h1>
+          </div>
+          <h1
+            class="font-mono text-5xl font-extrabold text-foreground uppercase"
+          >
+            Desarrollador de software Full Stack
+          </h1>
+          <p
+            class="mt-6 border-l-2 border-dotted pl-6 font-mono leading-relaxed text-muted-foreground italic"
+          >
+            Realicé
+            <font class="text-lg font-extrabold">+60</font>
+            proyectos publicados como Desarrollador de Software.<br />Mi
+            formación técnica en Programación la refuerzo con <font
+              class="text-lg font-extrabold">+5</font
+            > años de aprendizaje autodidacta.<br />Construyo sistemas
+            escalables con frameworks modernos y soluciones cloud-native.<br
+            />Me desenvuelvo bien bajo presión, me adapto rápido a nuevas
+            tecnologías y constantemente evoluciono mi forma de trabajar.
+          </p>
 
-		<!-- Introduccion -->
-	<div class="flex min-h-svh w-screen dotted-background py-32 border-b-2 border-dotted">
-	<div class="mx-auto container">
-	<div class="flex justify-between">
-		<div class="flex flex-col gap-6">
-		<div class="text-secondary-foreground font-bold bg-accent/50 border-2 border-dotted w-fit p-2 uppercase">
-			<h1 class="text-center font-mono">¡Hola! Soy Gabriel Solotorevsky</h1>
-		</div>
-		<h1 class="text-5xl font-mono font-extrabold text-foreground uppercase">Desarrollador de software Full Stack</h1>
-		<p class="mt-6 border-l-2 border-dotted pl-6 italic font-mono text-muted-foreground leading-relaxed ">Logre realizar sistemas que satisfacen las necesidades de mis clientes cumpliendo las fechas límites.<br/> Me adapto a varias situaciones en cortos periodos de tiempo y aprendo lo necesario para avanzar en los proyectos que me proponga.</p>
-		
-		<Button className="p-7 bg-primary border-2 border-dotted text-primary-foreground text-lg w-fit uppercase hover:bg-primary/80">
-			Ver mis proyectos <ArrowRightIcon className="size-8"/>
-		</Button>
-			<Button className="p-7 bg-accent/50 border-2 border-dotted text-secondary-foreground text-lg w-fit uppercase hover:bg-accent/30" variant="default">Contactame</Button>
-		</div>
-		<div class="flex items-center">
-			<div class="relative">
-				<img src="/portada.jpeg" class="w-full lg:w-lg  object-cover border-2 p-2 border-dotted aspect-square" />
-				<ApertureIcon className="absolute -top-3 -left-3 fill-accent-foreground rounded-full p-2 bg-background border-2 border-dotted" size="48" />
-			</div>
+          <Button
+            className="w-fit border-2 border-dotted bg-primary p-7 text-lg text-primary-foreground uppercase hover:bg-primary/80"
+          >
+            Ver mis proyectos <ArrowRightIcon className="size-8" />
+          </Button>
+          <Button
+            className="w-fit border-2 border-dotted bg-accent/50 p-7 text-lg text-secondary-foreground uppercase hover:bg-accent/30"
+            variant="default">Contactame</Button
+          >
+        </div>
+        <div class="flex items-center">
+          <div class="relative">
+            <img
+              src="/portada.jpeg"
+              class="aspect-square w-full border-2 border-dotted object-cover p-2 lg:w-lg"
+            />
+            <ApertureIcon
+              className="absolute -top-3 -left-3 rounded-full border-2 border-dotted bg-background fill-accent-foreground p-2"
+              size="48"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-		</div>
-		</div>
-	</div>
-
-	</div>
-
-	<!-- Lo que hago -->
-	<div class="py-20">
-		<h1 class="font-mono text-4xl uppercase text-center font-extrabold" >Lo que hago</h1> 
-		<div class="grid grid-cols-3 gap-15 container mx-auto mt-10">
-			<!-- Desarrollo web -->
-			<div class="border-2 relative border-dotted bg-card p-5 grid gap-3 transition-transform hover:-translate-y-5 duration-300 ease-in-out">
-				<CodeIcon className="border-2 border-dotted bg-primary/10 fill-primary p-2" size="48" />
-				<h2 class="text-lg text-foreground uppercase font-mono font-bold">Desarrollo web</h2>
-				<p class="text-muted-foreground font-mono">
-				Realizo paginas web rapidas y adaptadas a las necesidades modernas utilizando Nuxt, Astro, Next.js, Vue, React y entre otras herramientas.</p>
-				<!--<br />
+  <!-- Lo que hago -->
+  <div class="py-20">
+    <h1 class="text-center font-mono text-4xl font-extrabold uppercase">
+      Lo que hago
+    </h1>
+    <div class="container mx-auto mt-10 grid grid-cols-3 gap-15">
+      <!-- Desarrollo web -->
+      <div
+        class="relative grid gap-3 border-2 border-dotted bg-card p-5 transition-transform duration-300 ease-in-out hover:-translate-y-5"
+      >
+        <CodeIcon
+          className="border-2 border-dotted bg-primary/10 fill-primary p-2"
+          size="48"
+        />
+        <h2 class="font-mono text-lg font-bold text-foreground uppercase">
+          Desarrollo web
+        </h2>
+        <p class="font-mono text-muted-foreground">
+          Realizo paginas web rapidas y adaptadas a las necesidades modernas
+          utilizando Nuxt, Astro, Next.js, Vue, React y entre otras
+          herramientas.
+        </p>
+        <!--<br />
 				<hr class="border-2 border-dotted" />
 				<p class="text-muted-foreground font-mono">Tengo experiencia en el desarrollo de Front End, Back End, bases de datos y Devops con proyectos que actualmente estan disponibles para visitar.</p> -->
-				<AtomIcon className="absolute -top-4 -left-4 fill-accent-foreground rounded-full p-2 bg-background border-2 border-dotted" size="48" />
-			</div>
+        <AtomIcon
+          className="absolute -top-4 -left-4 rounded-full border-2 border-dotted bg-background fill-accent-foreground p-2"
+          size="48"
+        />
+      </div>
 
-			<!-- Automatizaciones -->
-			<div class="border-2 relative border-dotted bg-card p-5 grid gap-3 transition-transform hover:-translate-y-5 duration-300 ease-in-out">
-				<RobotIcon className="border-2 border-dotted bg-primary/10 fill-primary p-2" size="48" />
-				<h2 class="text-lg text-foreground uppercase font-mono font-bold">Automatizaciones</h2>
-				<p class="text-muted-foreground font-mono">Realize automatizaciones con N8N y workers de varios lenguajes que aumentaron la calidad, eficiencia y alcance de los procesos que me presentaron.</p>
-				<TimerIcon className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 fill-accent-foreground rounded-full p-2 bg-background border-2 border-dotted" size="48" />
-			</div>
+      <!-- Automatizaciones -->
+      <div
+        class="relative grid gap-3 border-2 border-dotted bg-card p-5 transition-transform duration-300 ease-in-out hover:-translate-y-5"
+      >
+        <RobotIcon
+          className="border-2 border-dotted bg-primary/10 fill-primary p-2"
+          size="48"
+        />
+        <h2 class="font-mono text-lg font-bold text-foreground uppercase">
+          Automatizaciones
+        </h2>
+        <p class="font-mono text-muted-foreground">
+          Realize automatizaciones con N8N y workers de varios lenguajes que
+          aumentaron la calidad, eficiencia y alcance de los procesos que me
+          presentaron.
+        </p>
+        <TimerIcon
+          className="absolute -bottom-4 left-1/2 -translate-x-1/2 transform rounded-full border-2 border-dotted bg-background fill-accent-foreground p-2"
+          size="48"
+        />
+      </div>
 
-			<!-- Devops -->
-			<div class="border-2 relative border-dotted bg-card p-5 grid gap-3 transition-transform hover:-translate-y-5 duration-300 ease-in-out">
-				<CloudIcon className="border-2 border-dotted bg-primary/10 fill-primary p-2" size="48" />
-				<h2 class="text-lg text-foreground uppercase font-mono font-bold">DevOps</h2>
-				<p class="text-muted-foreground font-mono">Estoy acostumbrado a resolver problemas en servidores de Linux, locales, remotos o distribuidos.<br/>Tengo experiencia en contenedores Docker y en Docker Compose.</p>
-				<CpuIcon className="absolute -top-4 -right-4 fill-accent-foreground rounded-full p-2 bg-background border-2 border-dotted" size="48" />
-			</div>
-
-
+      <!-- Devops -->
+      <div
+        class="relative grid gap-3 border-2 border-dotted bg-card p-5 transition-transform duration-300 ease-in-out hover:-translate-y-5"
+      >
+        <CloudIcon
+          className="border-2 border-dotted bg-primary/10 fill-primary p-2"
+          size="48"
+        />
+        <h2 class="font-mono text-lg font-bold text-foreground uppercase">
+          DevOps
+        </h2>
+        <p class="font-mono text-muted-foreground">
+          Estoy acostumbrado a resolver problemas en servidores de Linux,
+          locales, remotos o distribuidos.<br />Tengo experiencia en
+          contenedores Docker y en Docker Compose.
+        </p>
+        <CpuIcon
+          className="absolute -top-4 -right-4 rounded-full border-2 border-dotted bg-background fill-accent-foreground p-2"
+          size="48"
+        />
+      </div>
     </div>
+  </div>
 </Main>

@@ -1,26 +1,32 @@
 ---
 import { Button } from "@workspace/ui/components/button"
 ---
-<header class="sticky top-0 bg-card/50 backdrop-blur-md border-b-2 border-dotted border-border z-50">
-	<nav class="flex flex-row p-5 mx-auto justify-between container" >
-	<a href="/" class="scroll-m-20 font-mono text-2xl font-extrabold text-primary tracking-tight text-balance">
+
+<header
+  class="sticky top-0 z-50 border-b-2 border-dotted border-border bg-card/50 backdrop-blur-md"
+>
+  <nav class="container mx-auto flex flex-row justify-between p-5">
+    <a
+      href="/"
+      class="scroll-m-20 font-mono text-2xl font-extrabold tracking-tight text-balance text-primary"
+    >
       SOLOTOREVSKY_GABRIEl
-	</a>
-	<div>
-	<Button variant="ghost">
-		<p class="font-mono text-base font-thin">INICIO</p>
-	</Button>
-	<Button variant="ghost">
-		<p class="font-mono text-base font-thin">SOBRE MI</p>
-	</Button>
+    </a>
+    <div>
+      <Button variant="ghost">
+        <a href="/" class="font-mono text-base font-thin">INICIO</a>
+      </Button>
+      <Button variant="ghost">
+        <a href="/sobre" class="font-mono text-base font-thin">SOBRE MI</a>
+      </Button>
 
-	<Button variant="ghost">
-		<p class="font-mono text-base font-thin">PROYECTOS</p>
-	</Button>
+      <Button variant="ghost">
+        <a href="/proyectos" class="font-mono text-base font-thin">PROYECTOS</a>
+      </Button>
 
-	<Button variant="ghost">
-		<p class="font-mono text-base font-thin">CONTACTOS</p>
-	</Button>
-	</div>
-	</nav>
+      <Button variant="ghost">
+        <a href="/contactos" class="font-mono text-base font-thin">CONTACTOS</a>
+      </Button>
+    </div>
+  </nav>
 </header>

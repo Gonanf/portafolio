@@ -1,15 +1,47 @@
 ---
 import { Button } from "@workspace/ui/components/button"
-import { GithubLogoIcon, YoutubeLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react"
+import {
+  GithubLogoIcon,
+  YoutubeLogoIcon,
+  LinkedinLogoIcon,
+} from "@phosphor-icons/react"
 ---
-<footer class="bg-card border-2 border-dotted py-10 relative">
-	<div class="mx-auto container flex justify-between">
-		<p class="text-base/10 text-center text-secondary-foreground uppercase">Sigueme en mis redes sociales: </p>
-		<div class="flex gap-2">
-			<Button variant="outline" className="border-dotted border-2" size="icon-lg"><GithubLogoIcon className="fill-muted-foreground size-8" /> </Button>
-			<Button variant="outline" className="border-dotted border-2" size="icon-lg"><YoutubeLogoIcon className="fill-muted-foreground size-8"/> </Button>
-				<Button variant="outline" className="border-dotted border-2" size="icon-lg"><LinkedinLogoIcon className="fill-muted-foreground size-8"/> </Button>
-		</div>
-	</div>
-	<p class="absolute bottom-0 right-2 font-mono font-italic font-thin text-xs text-foreground/20">- PD: Esta pagina fue hecha en una noche</p>
+
+<footer class="relative border-2 border-dotted bg-card py-10">
+  <div class="container mx-auto flex justify-between">
+    <p class="text-center text-base/10 text-secondary-foreground uppercase">
+      Sigueme en mis redes sociales:
+    </p>
+    <div class="flex gap-2">
+      <Button
+        variant="outline"
+        className="border-2 border-dotted"
+        size="icon-lg"
+        ><a href="https://github.com/Gonanf"
+          ><GithubLogoIcon className="size-8 fill-muted-foreground" /></a
+        >
+      </Button>
+      <Button
+        variant="outline"
+        className="border-2 border-dotted"
+        size="icon-lg"
+        ><a href="https://www.youtube.com/channel/UCllNy6G6V8WgzgXguloZYiw"
+          ><YoutubeLogoIcon className="size-8 fill-muted-foreground" /></a
+        >
+      </Button>
+      <Button
+        variant="outline"
+        className="border-2 border-dotted"
+        size="icon-lg"
+        ><a href="https://www.linkedin.com/in/gabriel-solotorevsky-35524431b"
+          ><LinkedinLogoIcon className="size-8 fill-muted-foreground" /></a
+        >
+      </Button>
+    </div>
+  </div>
+  <p
+    class="font-italic absolute right-2 bottom-0 font-mono text-xs font-thin text-foreground/20"
+  >
+    - PD: Esta pagina fue hecha en una noche
+  </p>
 </footer>

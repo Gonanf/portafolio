@@ -1,5 +1,6 @@
 ---
 import "@workspace/ui/globals.css"
+import "@/styles/custom.css"
 import Header from "@/components/header.astro"
 import Footer from "@/components/footer.astro"
 import { Toaster } from "@workspace/ui/components/sonner"
@@ -13,10 +14,9 @@ import { Toaster } from "@workspace/ui/components/sonner"
     <title>Curriculum</title>
   </head>
   <body>
-
-	  <Header/>
-	  <slot />
-	  <Footer/>
-		  <Toaster client:load />
+    <Header />
+    <slot />
+    <Footer />
+    <Toaster client:load />
   </body>
 </html>
