@@ -1,73 +1,102 @@
 ---
 import Main from "@/layouts/main.astro"
 import Card from "@/components/card.astro"
-import { EnvelopeSimpleIcon, WhatsappLogoIcon, GithubLogoIcon, ChatIcon, LinkedinLogoIcon, CalendarCheckIcon } from "@phosphor-icons/react"
+import {
+  EnvelopeSimpleIcon,
+  WhatsappLogoIcon,
+  GithubLogoIcon,
+  ChatIcon,
+  LinkedinLogoIcon,
+  CalendarCheckIcon,
+} from "@phosphor-icons/react"
 import Card from "@/components/card.astro"
-
 ---
 
 <Main>
+  <div class="dotted-background py-32">
+    <div class="container mx-auto">
+      <h1 class="text-5xl font-bold uppercase">Contacto</h1>
+      <div class="my-12 h-1 w-20 border-2 border-primary"></div>
 
-	<div class="dotted-background py-32">
-		<div class="container mx-auto">
-		<h1 class="font-mono text-5xl font-bold uppercase">Contacto</h1>
-		<div class="my-12 h-1 w-20 border-2 border-primary"></div>
+      <p class="mb-16 text-lg text-muted-foreground">
+        ¿Necesitas crear o buscas colaboracion en un proyecto? Contactame,
+        Siempre estoy abierto a mensajes y proposiciones.
+      </p>
+      <div class="grid grid-cols-2 gap-6">
+        <div class="space-y-6">
+          <span class="mb-8 flex items-center gap-3">
+            <ChatIcon size={24} className="fill-primary" />
+            <h3 class="text-2xl font-bold uppercase">
+              Información de Contacto
+            </h3>
+          </span>
 
-		<p class="font-mono text-lg text-muted-foreground mb-16">¿Necesitas crear o buscas colaboracion en un proyecto? Contactame, Siempre estoy abierto a mensajes y proposiciones. </p>
-		<div class="grid grid-cols-2 gap-6">
-			<div class="space-y-6">
-			<span class="flex items-center gap-3 mb-8">
-				<ChatIcon size={24} className="fill-primary"/>
-			<h3 class="font-mono text-2xl font-bold uppercase">Información de Contacto</h3>
-			</span>
+          <Card animate={true}>
+            <div slot="body" class="flex gap-4">
+              <EnvelopeSimpleIcon
+                className="h-12 w-12 border-2 border-dotted bg-primary/10 fill-primary p-2"
+              />
+              <div>
+                <p class="font-lg mb-1 font-bold">Email</p>
+                <a
+                  class="decoration-dotted"
+                  href="mailto:solotorevskygabrieltrabajo@gmail.com"
+                  >solotorevskygabrieltrabajo@gmail.com</a
+                >
+              </div>
+            </div>
+          </Card>
 
-			<Card animate={true}>
-				<div slot="body" class="flex gap-4">
-					<EnvelopeSimpleIcon className="bg-primary/10 w-12 h-12 border-2 border-dotted p-2 fill-primary" />
-					<div>
-						<p class="font-lg font-mono mb-1 font-bold">Email</p>
-						<a class="font-mono decoration-dotted" href="mailto:solotorevskygabrieltrabajo@gmail.com">solotorevskygabrieltrabajo@gmail.com</a>
-				</div>
-			</div>
-			</Card>
+          <Card animate={true}>
+            <div slot="body" class="flex gap-4">
+              <WhatsappLogoIcon
+                className="h-12 w-12 border-2 border-dotted bg-primary/10 fill-primary p-2"
+              />
+              <div>
+                <p class="font-lg mb-1 font-bold">Whatsapp</p>
+                <a class="decoration-dotted" href="https://wa.link/i6y9sd"
+                  >+54 11 3402-1451</a
+                >
+              </div>
+            </div>
+          </Card>
 
-			<Card animate={true}>
-				<div slot="body" class="flex gap-4">
-					<WhatsappLogoIcon className="bg-primary/10 w-12 h-12 border-2 border-dotted p-2 fill-primary" />
-					<div>
-						<p class="font-lg font-mono mb-1 font-bold">Whatsapp</p>
-						<a class="font-mono decoration-dotted" href="https://wa.link/i6y9sd">+54 11 3402-1451</a>
-				</div>
-			</div>
-			</Card>
+          <Card animate={true}>
+            <div slot="body" class="flex gap-4">
+              <LinkedinLogoIcon
+                className="h-12 w-12 border-2 border-dotted bg-primary/10 fill-primary p-2"
+              />
+              <div>
+                <p class="font-lg mb-1 font-bold">LinkedIn</p>
+                <a
+                  class="decoration-dotted"
+                  href="https://www.linkedin.com/in/gabriel-solotorevsky-35524431b"
+                  >/in/gabriel-solotorevsky</a
+                >
+              </div>
+            </div>
+          </Card>
+        </div>
 
-			<Card animate={true}>
-				<div slot="body" class="flex gap-4">
-					<LinkedinLogoIcon className="bg-primary/10 w-12 h-12 border-2 border-dotted p-2 fill-primary" />
-					<div>
-						<p class="font-lg font-mono mb-1 font-bold">LinkedIn</p>
-						<a class="font-mono decoration-dotted" href="https://www.linkedin.com/in/gabriel-solotorevsky-35524431b">/in/gabriel-solotorevsky</a>
-				</div>
-			</div>
-			</Card>
-			</div>
-
-			<div class="space-y-6">
-			<span class="flex items-center gap-3 mb-8">
-				<CalendarCheckIcon size={24} className="fill-primary"/>
-			<h3 class="font-mono text-2xl font-bold uppercase">Organiza una reunion</h3>
-			</span>
-			<Card className="relative border-2 border-dotted bg-card p-10 h-full">
-				<div slot="body" class="flex gap-4">
-				<!-- Google Calendar Appointment Scheduling begin -->
-<iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1nIkO0Z-kCD-LrzhsDMFX9pDOPqg4Hap0-Hoz8SFK2TxF5j3yaSHupyDloGTJtfrJPlqtYMqAH?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-<!-- end Google Calendar Appointment Scheduling -->
-				</div>
-			</div>
-			</Card>
-		</div>
-
-
-	</div>
-
+        <div class="space-y-6">
+          <span class="mb-8 flex items-center gap-3">
+            <CalendarCheckIcon size={24} className="fill-primary" />
+            <h3 class="text-2xl font-bold uppercase">Organiza una reunion</h3>
+          </span>
+          <Card className="relative h-full border-2 border-dotted bg-card p-10">
+            <div slot="body" class="flex gap-4">
+              <!-- Google Calendar Appointment Scheduling begin -->
+              <iframe
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1nIkO0Z-kCD-LrzhsDMFX9pDOPqg4Hap0-Hoz8SFK2TxF5j3yaSHupyDloGTJtfrJPlqtYMqAH?gv=true"
+                style="border: 0"
+                width="100%"
+                height="600"
+                frameborder="0"></iframe>
+              <!-- end Google Calendar Appointment Scheduling -->
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </div>
 </Main>

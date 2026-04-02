@@ -35,14 +35,14 @@ const habilidades = [
 <Main>
   <div class="dotted-background min-h-svh w-screen">
     <div class="container mx-auto py-20">
-      <h1 class="font-mono text-5xl font-bold uppercase">Acerca de mi</h1>
+      <h1 class="  text-5xl font-bold uppercase">Acerca de mi</h1>
       <div class="my-12 h-1 w-20 border-2 border-primary"></div>
 
       <div class="grid grid-cols-2 gap-5 border-b-2 border-dotted pb-20">
         <div>
           <span class="mb-6 flex items-center gap-3">
             <DiscIcon className="fill-primary" size={24} />
-            <h3 class="font-mono text-2xl font-bold uppercase">Mi perfil</h3>
+            <h3 class="  text-2xl font-bold uppercase">Mi perfil</h3>
           </span>
           <p class="leading-relaxed text-muted-foreground">
             Desde ~2017 aprendí programación de manera autodidacta, y en 2018
@@ -76,9 +76,9 @@ const habilidades = [
           />
 
 	  <div slot="body">
-          <h4 class="mb-6 font-mono text-xl font-bold uppercase">Idiomas</h4>
+          <h4 class="mb-6   text-xl font-bold uppercase">Idiomas</h4>
 
-          <ul class="*:flex *:gap-2 *:font-mono *:font-medium">
+          <ul class="*:flex *:gap-2 *:  *:font-medium">
             <li>
               <CheckCircleIcon className="fill-primary" size="24" />Español -
               Nativo
@@ -109,14 +109,14 @@ const habilidades = [
         <div class="grid gap-6">
           <span class="flex items-center gap-3 mb-8 h-fit">
             <SuitcaseIcon className="fill-primary" size={24} />
-            <h3 class="font-mono text-2xl font-bold uppercase">Experiencia</h3>
+            <h3 class="  text-2xl font-bold uppercase">Experiencia</h3>
           </span>
 
 	  { experiencia.map((i,key) => (
           <Card>
             <span slot="body">
-		    <h3 class="font-mono text-lg font-bold">{i.titulo}</h3>
-              <p class="font-mono text-sm font-bold text-primary uppercase">
+		    <h3 class="  text-lg font-bold">{i.titulo}</h3>
+              <p class="  text-sm font-bold text-primary uppercase">
 	      {i.descripcion}
               </p>
             </span>
@@ -130,14 +130,14 @@ const habilidades = [
 	  <div class="grid gap-6 h-fit">
           <span class="flex items-center gap-3 mb-8">
             <GraduationCapIcon className="fill-primary" size={24} />
-            <h3 class="font-mono text-2xl font-bold uppercase">Educacion</h3>
+            <h3 class="  text-2xl font-bold uppercase">Educacion</h3>
           </span>
 
 	{ educacion.map((i,key) => (
           <Card>
             <span slot="body">
-		    <h3 class="font-mono text-lg font-bold">{i.titulo}</h3>
-              <p class="font-mono text-sm font-bold text-primary uppercase">
+		    <h3 class="  text-lg font-bold">{i.titulo}</h3>
+              <p class="  text-sm font-bold text-primary uppercase">
 	      {i.descripcion}
               </p>
             </span>
@@ -152,15 +152,15 @@ const habilidades = [
       <div class="grid gap-6 h-fit border-b-2 border-dotted pb-20 container mx-auto py-20">
         <span class="flex items-center gap-3 mb-8">
           <TrophyIcon className="fill-primary" size={24} />
-          <h3 class="font-mono text-2xl font-bold uppercase">Reconocimientos</h3>
+          <h3 class="  text-2xl font-bold uppercase">Reconocimientos</h3>
         </span>
 
         <div class="grid md:grid-cols-2 gap-6">
           { reconocimientos.map((i,key) => (
             <Card>
               <span slot="body">
-                <h3 class="font-mono text-lg font-bold">{i.titulo}</h3>
-                <p class="font-mono text-sm text-muted-foreground">
+                <h3 class="  text-lg font-bold">{i.titulo}</h3>
+                <p class="  text-sm text-muted-foreground">
                   {i.descripcion}
                 </p>
               </span>
@@ -174,18 +174,18 @@ const habilidades = [
 <div class="grid gap-6 h-fit pb-20 container mx-auto py-20">
         <span class="flex items-center gap-3 mb-8">
           <FlaskIcon weight="fill" className="fill-primary" size={24} />
-	  <h3 class="font-mono text-2xl font-bold uppercase">Habilidades Tecnicas</h3>
+	  <h3 class="  text-2xl font-bold uppercase">Habilidades Tecnicas</h3>
         </span>
 
         <div class="grid md:grid-cols-2 gap-6">
 		{ habilidades.map((i,key) => (
             <Card>
               <span slot="body">
-		      <h3 class="text-lg mb-6 text-primary font-bold uppercase tracking-wider border-b-2 border-dotted border-border pb-2 font-mono border-b-2 border-dotted">{i.name}</h3>
+		      <h3 class="text-lg mb-6 text-primary font-bold uppercase tracking-wider border-b-2 border-dotted border-border pb-2   border-b-2 border-dotted">{i.name}</h3>
 
 			<ul class="space-y-3">
 			      {i.value.map((item) => (
-			      <li class="font-mono flex items-center gap-3">
+			      <li class="  flex items-center gap-3">
 				      <div class="w-1.5 h-1.5 bg-primary transform rotate-45"></div>
 
 				      <span class="text-foreground font-medium">{item}</span>

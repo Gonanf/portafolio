@@ -1,60 +1,52 @@
 ---
-const { animate, className } = Astro.props;
+const { animate, className } = Astro.props
 import { StarIcon } from "@phosphor-icons/react"
 import { cn } from "@workspace/ui/lib/utils"
 ---
 
-<div class={cn(className ?? "relative border-2 border-dotted bg-card p-10",animate ? "transition-transform duration-300 ease-in-out hover:-translate-y-5" : "")}>
+<div
+  class={cn(
+    className ?? "relative border-2 border-dotted bg-card p-10",
+    animate
+      ? "transition-transform duration-300 ease-in-out hover:-translate-y-5"
+      : ""
+  )}
+>
+  <slot name="lu-icon">
+    <StarIcon
+      className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 bg-background fill-primary p-2"
+      weight="fill"
+      size="30"
+    />
+  </slot>
 
-	<slot name="lu-icon">
-          <StarIcon
-            className="fill-primary absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 bg-background p-2"
-            weight="fill"
-            size="30"
-	    />
-	</slot>
+  <slot name="lb-icon">
+    <StarIcon
+      className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 bg-background fill-primary p-2"
+      weight="fill"
+      size="30"
+    />
+  </slot>
 
+  <slot name="ru-icon">
+    <StarIcon
+      className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-background fill-primary p-2"
+      weight="fill"
+      size="30"
+    />
+  </slot>
 
+  <slot name="rb-icon">
+    <StarIcon
+      className="absolute right-0 bottom-0 translate-x-1/2 translate-y-1/2 bg-background fill-primary p-2"
+      weight="fill"
+      size="30"
+    />
+  </slot>
 
-	<slot name="lb-icon">
-          <StarIcon
-            className="fill-primary absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 bg-background p-2"
-            weight="fill"
-            size="30"
-	    />
-	</slot>
+  <slot name="cu-icon" />
 
+  <slot name="cb-icon" />
 
-
-	<slot name="ru-icon">
-          <StarIcon
-			  className="fill-primary absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-background p-2"
-			  weight="fill"
-            size="30"
-	    />
-	</slot>
-
-
-
-
-	<slot name="rb-icon">
-          <StarIcon
-            className="fill-primary absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 bg-background p-2"
-            weight="fill"
-            size="30"
-	    />
-	</slot>
-
-
-
-	<slot name="cu-icon" />
-
-
-
-	<slot name="cb-icon" />
-
-
-	<slot name="body" />
-
-      </div>
-
+  <slot name="body" />
+</div>

@@ -1,6 +1,8 @@
 ---
 import Main from "@/layouts/main.astro"
 import Card from "@/components/card.astro"
+import { Button } from "@workspace/ui/components/button"
+import { GithubLogoIcon, WWWIcon } from "@phosphor-icons/react"
 
 const proyectos = [
 {img: "/arcteto.png",titulo: "Arcteto",descripcion: "Una distribucion de Arch Linux tecnica, enfocada en la eficiencia, el desarrollo de software y mi ecosistema de scripts / herramientas", tags: ["Sistemas operativos","Linux","Arch Linux"],url: "https://github.com/Gonanf/arcteto"},
@@ -13,17 +15,45 @@ const proyectos = [
 
 	<div class="dotted-background py-32">
 		<div class="container mx-auto">
-		<h1 class="font-mono text-5xl font-bold uppercase">Mis Proyectos</h1>
+		<h1 class="  text-5xl font-bold uppercase">Mis Proyectos</h1>
 		<div class="my-12 h-1 w-20 border-2 border-primary"></div>
 
-		<p class="font-mono text-lg text-muted-foreground mb-16">Realize multiples proyectos, pruebas y productos, estos son los que considero los mejores.</p>
+		<p class="  text-lg text-muted-foreground mb-16">Realize multiples proyectos, pruebas y productos, estos son los que considero los mejores.</p>
 
+		<div class="grid grid-cols-3 gap-6">
 		{ proyectos.map((p) => (
 		<Card animate="true">
-		<img src={p.img} />
-		<h3 class="font-mono" />
+		<div slot="body">
+			<img src={p.img} class="mb-5"/>
+		<h3 class="text-lg font-bold">{p.titulo}</h3>
+		<p class="text-base text-muted-foreground">{p.descripcion}</p>
+		<span class="flex gap-4">
+			{p.tags.map((t) => (<p class="text-xs text-secondary-foreground bg-secondary p-2 rounded-full text-center border-2 border-dotted">{t}</p>))}
+		</span>
+
+		{ p["url"] &&
+		<Button>
+			<a href={p.url} class="flex" >
+				<GithubLogoIcon />
+				Github
+			</a>
+		</Button>
+		}
+
+		{ p["pagina"] &&
+		<Button>
+			<a href={p.pagina} class="flex" >
+				<WebIcon />
+				Pagina
+			</a>
+		</Button>
+		}
+		</div>
 		</Card>
 		))}
-	</div>
 
+		</div>
+		</div>
+	</div>
+	
 </Main>

@@ -30,17 +30,13 @@ import {
           <div
             class="w-fit border-2 border-dotted bg-accent/50 p-2 font-bold text-secondary-foreground uppercase"
           >
-            <h1 class="text-center font-mono">
-              ¡Hola! Soy Gabriel Solotorevsky
-            </h1>
+            <h1 class="text-center">¡Hola! Soy Gabriel Solotorevsky</h1>
           </div>
-          <h1
-            class="font-mono text-5xl font-extrabold text-foreground uppercase"
-          >
+          <h1 class="text-5xl font-extrabold text-foreground uppercase">
             Desarrollador de software Full Stack
           </h1>
           <p
-            class="mt-6 border-l-2 border-dotted pl-6 font-mono leading-relaxed text-muted-foreground italic"
+            class="mt-6 border-l-2 border-dotted pl-6 leading-relaxed text-muted-foreground italic"
           >
             Realicé
             <font class="text-lg font-extrabold">+60</font>
@@ -56,11 +52,13 @@ import {
           <Button
             className="w-fit border-2 border-dotted bg-primary p-7 text-lg text-primary-foreground uppercase hover:bg-primary/80"
           >
-	  <a href="/proyectos">Ver mis proyectos</a><ArrowRightIcon className="size-8" />
+            <a href="/proyectos">Ver mis proyectos</a><ArrowRightIcon
+              className="size-8"
+            />
           </Button>
           <Button
             className="w-fit border-2 border-dotted bg-accent/50 p-7 text-lg text-secondary-foreground uppercase hover:bg-accent/30"
-	    variant="default"><a href="/contactos">Contactame</a></Button
+            variant="default"><a href="/contactos">Contactame</a></Button
           >
         </div>
         <div class="flex items-center">
@@ -81,79 +79,84 @@ import {
 
   <!-- Lo que hago -->
   <div class="py-20">
-    <h1 class="text-center font-mono text-4xl font-extrabold uppercase">
-      Lo que hago
-    </h1>
+    <h1 class="text-center text-4xl font-extrabold uppercase">Lo que hago</h1>
     <div class="container mx-auto mt-10 grid grid-cols-3 gap-15">
       <!-- Desarrollo web -->
-     <Card animate={true} className="relative border-2 border-dotted bg-card p-5 w-fit">
-	      <div slot="body">
-        <CodeIcon
-          className="border-2 border-dotted bg-primary/10 fill-primary p-2 mb-4"
-	  size="48"
+      <Card
+        animate={true}
+        className="relative w-fit border-2 border-dotted bg-card p-5"
+      >
+        <div slot="body">
+          <CodeIcon
+            className="mb-4 border-2 border-dotted bg-primary/10 fill-primary p-2"
+            size="48"
+          />
+          <h2 class="mb-3 text-xl font-bold text-foreground uppercase">
+            Desarrollo web
+          </h2>
+          <p class="text-muted-foreground">
+            Realizo paginas web rapidas y adaptadas a las necesidades modernas
+            utilizando Nuxt, Astro, Next.js, Vue, React y entre otras
+            herramientas.
+          </p>
+        </div>
 
-        />
-        <h2 class="font-mono text-xl font-bold text-foreground uppercase mb-3">
-          Desarrollo web
-        </h2>
-        <p class="font-mono text-muted-foreground">
-          Realizo paginas web rapidas y adaptadas a las necesidades modernas
-          utilizando Nuxt, Astro, Next.js, Vue, React y entre otras
-          herramientas.
-	</p>
-	      </div>
-	      
-	      <AtomIcon
+        <AtomIcon
           className="absolute -top-4 -left-4 rounded-full border-2 border-dotted bg-background fill-accent-foreground p-2"
-	  size="48"
-	  slot="lu-icon"
+          size="48"
+          slot="lu-icon"
         />
       </Card>
 
       <!-- Automatizaciones -->
-      <Card animate={true} className="relative border-2 border-dotted bg-card p-5 w-fit">
-	      <div slot="body">
-        <RobotIcon
-          className="border-2 border-dotted bg-primary/10 fill-primary p-2 mb-4"
-	  size="48"
-
-        />
-        <h2 class="font-mono text-xl font-bold text-foreground uppercase mb-3">
-          Automatizaciones
-        </h2>
-        <p class="font-mono text-muted-foreground">
-          Realize automatizaciones con N8N y workers de varios lenguajes que
-          aumentaron la calidad, eficiencia y alcance de los procesos que me
-          presentaron.
-	</p>
-	      </div>
+      <Card
+        animate={true}
+        className="relative w-fit border-2 border-dotted bg-card p-5"
+      >
+        <div slot="body">
+          <RobotIcon
+            className="mb-4 border-2 border-dotted bg-primary/10 fill-primary p-2"
+            size="48"
+          />
+          <h2 class="mb-3 text-xl font-bold text-foreground uppercase">
+            Automatizaciones
+          </h2>
+          <p class="text-muted-foreground">
+            Realize automatizaciones con N8N y workers de varios lenguajes que
+            aumentaron la calidad, eficiencia y alcance de los procesos que me
+            presentaron.
+          </p>
+        </div>
         <TimerIcon
           className="absolute -bottom-4 left-1/2 -translate-x-1/2 transform rounded-full border-2 border-dotted bg-background fill-accent-foreground p-2"
-	  size="48"
-	  slot="cb-icon"
+          size="48"
+          slot="cb-icon"
         />
       </Card>
 
       <!-- Devops -->
-      <Card animate={true} className="relative border-2 border-dotted bg-card p-5 w-fit">
-	      <div slot="body">
-        <CloudIcon
-          className="border-2 border-dotted bg-primary/10 fill-primary p-2 mb-4"
-	  size="48"
-        />
-        <h2 class="font-mono text-lg font-bold text-foreground uppercase mb-3">
-          DevOps
-        </h2>
-        <p class="font-mono text-muted-foreground">
-          Estoy acostumbrado a resolver problemas en servidores de Linux,
-          locales, remotos o distribuidos.<br />Tengo experiencia en
-          contenedores Docker y en Docker Compose.
-	</p>
-	      </div>
+      <Card
+        animate={true}
+        className="relative w-fit border-2 border-dotted bg-card p-5"
+      >
+        <div slot="body">
+          <CloudIcon
+            className="mb-4 border-2 border-dotted bg-primary/10 fill-primary p-2"
+            size="48"
+          />
+          <h2 class="mb-3 text-lg font-bold text-foreground uppercase">
+            DevOps
+          </h2>
+          <p class="text-muted-foreground">
+            Estoy acostumbrado a resolver problemas en servidores de Linux,
+            locales, remotos o distribuidos.<br />Tengo experiencia en
+            contenedores Docker y en Docker Compose.
+          </p>
+        </div>
         <CpuIcon
           className="absolute -top-4 -right-4 rounded-full border-2 border-dotted bg-background fill-accent-foreground p-2"
-	  size="48"
-	  slot="ru-icon"
+          size="48"
+          slot="ru-icon"
         />
       </Card>
     </div>
