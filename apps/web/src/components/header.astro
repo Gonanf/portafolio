@@ -1,32 +1,35 @@
 ---
 import { Button } from "@workspace/ui/components/button"
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+  } from "@workspace/ui/components/drawer"
+  import Navigation from "./navigation.tsx"
+  import { ListIcon, XIcon } from "@phosphor-icons/react"
+  import DrawerWrapper from "./drawer-wrapper.tsx"
 ---
 
 <header
   class="sticky top-0 z-50 border-b-2 border-dotted border-border bg-card/50 backdrop-blur-md"
 >
-  <nav class="container mx-auto flex flex-row justify-between p-5">
+  <nav class="container mx-auto flex flex-row justify-between items-center p-5">
     <a
       href="/"
       class="scroll-m-20 text-2xl font-extrabold tracking-tight text-balance text-primary"
     >
       SOLOTOREVSKY_GABRIEl
     </a>
-    <div>
-      <Button variant="ghost">
-        <a href="/" class="text-base font-thin">INICIO</a>
-      </Button>
-      <Button variant="ghost">
-        <a href="/sobre" class="text-base font-thin">SOBRE MI</a>
-      </Button>
-
-      <Button variant="ghost">
-        <a href="/proyectos" class="text-base font-thin">PROYECTOS</a>
-      </Button>
-
-      <Button variant="ghost">
-        <a href="/contactos" class="text-base font-thin">CONTACTOS</a>
-      </Button>
-    </div>
-  </nav>
+	    <div class="hidden md:flex">
+		    <Navigation/>
+	    </div>
+	<div class="md:hidden">
+		<DrawerWrapper client:load/>
+	</div>
+	  </nav>
 </header>

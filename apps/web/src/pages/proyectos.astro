@@ -2,11 +2,11 @@
 import Main from "@/layouts/main.astro"
 import Card from "@/components/card.astro"
 import { Button } from "@workspace/ui/components/button"
-import { GithubLogoIcon, WWWIcon } from "@phosphor-icons/react"
+import { GithubLogoIcon, GlobeSimpleIcon } from "@phosphor-icons/react"
 
 const proyectos = [
 {img: "/arcteto.svg",titulo: "Arcteto",descripcion: "Una distribucion de Arch Linux tecnica, enfocada en la eficiencia, el desarrollo de software y mi ecosistema de scripts / herramientas", tags: ["Sistemas operativos","Linux","Arch Linux"],url: "https://github.com/Gonanf/arcteto"},
-{img: "/kateto.svg",titulo: "Kateto",descripcion: "Un ecosistema de agentes, subagentes y herramientas para automatizar procesos con intervencion humana y la asistencia para el desarrollo y estudio de software.", tags: ["LLM","Agentes","Fine Tuned"],url: "https://github.com/Gonanf/kateto"},
+{img: "/kateto.svg",titulo: "Kateto",descripcion: "Un ecosistema de agentes, subagentes y herramientas para automatizar procesos con intervencion humana y la asistencia para el desarrollo y estudio de software.", tags: ["LLM","Agentes","Ecosistema","Conversacional"],url: "https://github.com/Gonanf/kateto"},
 {img: "/sherut.svg",titulo: "Sherut (Automatizacion)",descripcion: "Un sistema de automatizacion en N8N con un frontend en Astro que permite realizar seguimientos de clientes / campañas de marketing sin tener mucha friccion del lado del usuario y cliente.", tags: ["Automatizacion","N8N"]},
 ]
 ---
@@ -43,7 +43,7 @@ const proyectos = [
 		{ p["pagina"] &&
 		<Button>
 			<a href={p.pagina} class="flex" >
-				<WebIcon />
+				<GlobeSimpleIcon />
 				Pagina
 			</a>
 		</Button>

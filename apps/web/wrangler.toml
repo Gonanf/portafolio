@@ -8,13 +8,13 @@ workers_dev = true
 directory = "./dist"
 not_found_handling = "404-page"
 
-#[route]
-#pattern = "solotorevskygabriel.com/*"
-#zone_name = "solotorevskygabriel.com"
+[route]
+pattern = "solotorevskygabriel.com/*"
+zone_name = "solotorevskygabriel.com"
 
-#[env.staging]
-#name = "portafolio/web-staging"
+[env.staging]
+name = "portafolio/web-staging"
 
-#[env.staging.route]
-#pattern = "staging.solotorevskygabriel.com/*"
-#zone_name = "solotorevskygabriel.com"
+[env.staging.route]
+pattern = "staging.solotorevskygabriel.com/*"
+zone_name = "solotorevskygabriel.com"

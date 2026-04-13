@@ -9,9 +9,12 @@ export default defineConfig({
 	output: 'server',
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      minify: false,
+    },
   },
   integrations: [react()],
-adapter: cloudflare({
-imageService: { build: 'compile', runtime: 'cloudflare-binding' },
-}),
+  adapter: cloudflare({
+    imageService: { build: 'compile', runtime: 'cloudflare-binding' },
+  }),
 })
