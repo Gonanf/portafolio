@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+@theme {
+    --font-sans: 'Public Sans', sans-serif;
+  }
+
+body,html{
+    min-height: 100vh;
+}
+:root{
+    --color-midnightgreen: #004953;
+    --color-prussianblue: #0B3142;
+    --color-rosequartz: #9C92A3;
+}
+
+body,
+.bg-prussianblue{
+    background-color: var(--color-prussianblue);
+}
+.bg-midnightgreen{
+    background-color: var(--color-midnightgreen);
+}
+.bg-rosequartz{
+    background-color: var(--color-rosequartz);
+}
+
+
+.wave{
+    object-fit: fill;
+    width: 100px;
+}
+
+.clip-circle{
+    clip-path: circle();
+}
