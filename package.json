@@ -1,17 +1,17 @@
 {
-  "name": "curriculum",
+  "name": "portafolio",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "deploy": "turbo deploy",
+    "preview": "turbo preview",
     "lint": "turbo lint",
     "format": "turbo format",
     "typecheck": "turbo typecheck"
   },
   "devDependencies": {
-    "@workspace/eslint-config": "workspace:*",
-    "@workspace/typescript-config": "workspace:*",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "turbo": "^2.8.8",

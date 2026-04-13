@@ -5,9 +5,9 @@ import { Button } from "@workspace/ui/components/button"
 import { GithubLogoIcon, WWWIcon } from "@phosphor-icons/react"
 
 const proyectos = [
-{img: "/arcteto.png",titulo: "Arcteto",descripcion: "Una distribucion de Arch Linux tecnica, enfocada en la eficiencia, el desarrollo de software y mi ecosistema de scripts / herramientas", tags: ["Sistemas operativos","Linux","Arch Linux"],url: "https://github.com/Gonanf/arcteto"},
-{img: "/kateto.png",titulo: "Kateto",descripcion: "Un LLM de razonamiento entrenado a partir de mis proyectos, esta diseñado para ser critico, opinionado y a funcionar como un 'Rubber Ducky' el cual es una metodologia para razonar un problema con una conversacion consigo mismo hasta encontrar una solucion. \n\nAdemas del LLM, Kateto tiene un ecosistema propio de scripts, agentes y subagentes para automatizar mucha parte de mis proyectos personales.", tags: ["LLM","Agentes","Fine Tuned"],url: "https://github.com/Gonanf/kateto"},
-{img: "/sherut.png",titulo: "Sherut (Automatizacion)",descripcion: "Un sistema de automatizacion en N8N con un frontend en Astro que permite realizar seguimientos de clientes / campañas de marketing sin tener mucha friccion del lado del usuario y cliente.", tags: ["Automatizacion","N8N"]},
+{img: "/arcteto.svg",titulo: "Arcteto",descripcion: "Una distribucion de Arch Linux tecnica, enfocada en la eficiencia, el desarrollo de software y mi ecosistema de scripts / herramientas", tags: ["Sistemas operativos","Linux","Arch Linux"],url: "https://github.com/Gonanf/arcteto"},
+{img: "/kateto.svg",titulo: "Kateto",descripcion: "Un ecosistema de agentes, subagentes y herramientas para automatizar procesos con intervencion humana y la asistencia para el desarrollo y estudio de software.", tags: ["LLM","Agentes","Fine Tuned"],url: "https://github.com/Gonanf/kateto"},
+{img: "/sherut.svg",titulo: "Sherut (Automatizacion)",descripcion: "Un sistema de automatizacion en N8N con un frontend en Astro que permite realizar seguimientos de clientes / campañas de marketing sin tener mucha friccion del lado del usuario y cliente.", tags: ["Automatizacion","N8N"]},
 ]
 ---
 
@@ -24,7 +24,7 @@ const proyectos = [
 		{ proyectos.map((p) => (
 		<Card animate="true">
 		<div slot="body">
-			<img src={p.img} class="mb-5"/>
+			<img src={p.img} class="mb-5 w-full h-50 self-center "/>
 		<h3 class="text-lg font-bold">{p.titulo}</h3>
 		<p class="text-base text-muted-foreground">{p.descripcion}</p>
 		<span class="flex gap-4">

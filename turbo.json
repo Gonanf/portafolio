@@ -7,6 +7,19 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**"]
     },
+    "deploy": {
+	"cache": false,
+      "dependsOn": ["^deploy","build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**"]
+    },
+    "preview": {
+	"cache": false,
+      "dependsOn": ["^preview","build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**"],
+      "persistent": true
+    },
     "lint": { "dependsOn": ["^lint"] },
     "format": { "dependsOn": ["^format"] },
     "typecheck": { "dependsOn": ["^typecheck"] },

@@ -1,0 +1,20 @@
+"$schema" = "./node_modules/wrangler/config-schema.json"
+name = "portafolio-web"
+main = "@astrojs/cloudflare/entrypoints/server"
+compatibility_date = "2026-04-04"
+workers_dev = true
+
+[assets]
+directory = "./dist"
+not_found_handling = "404-page"
+
+#[route]
+#pattern = "solotorevskygabriel.com/*"
+#zone_name = "solotorevskygabriel.com"
+
+#[env.staging]
+#name = "portafolio/web-staging"
+
+#[env.staging.route]
+#pattern = "staging.solotorevskygabriel.com/*"
+#zone_name = "solotorevskygabriel.com"
