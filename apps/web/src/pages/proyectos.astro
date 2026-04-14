@@ -20,11 +20,11 @@ const proyectos = [
 
 		<p class="  text-lg text-muted-foreground mb-16">Realize multiples proyectos, pruebas y productos, estos son los que considero los mejores.</p>
 
-		<div class="grid grid-cols-3 gap-6">
+		<div class="grid md:grid-cols-3 gap-6">
 		{ proyectos.map((p) => (
 		<Card animate="true">
 		<div slot="body">
-			<img src={p.img} class="mb-5 w-full h-50 self-center "/>
+			<img src={p.img} class="mb-5 md:w-full max-md:container h-50 self-center "/>
 		<h3 class="text-lg font-bold">{p.titulo}</h3>
 		<p class="text-base text-muted-foreground">{p.descripcion}</p>
 		<span class="flex gap-4">

@@ -6,7 +6,8 @@ import { cn } from "@workspace/ui/lib/utils"
 
 <div
   class={cn(
-    className ?? "relative border-2 border-dotted bg-card p-10",
+    "relative overflow-hidden border-2 border-dotted bg-card p-10",
+    className,
     animate
       ? "transition-transform duration-300 ease-in-out hover:-translate-y-5"
       : ""
