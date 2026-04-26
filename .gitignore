@@ -31,3 +31,7 @@ npm-debug.log*
 # Misc
 .DS_Store
 *.pem
+
+# MemPalace per-project files (issue #185)
+mempalace.yaml
+entities.json

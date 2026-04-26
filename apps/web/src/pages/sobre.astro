@@ -17,6 +17,7 @@ import {
   const educacion = [{ titulo: " E.E.S.T N°2 Ceferino Namuncurá ", descripcion: "Tecnico en programacion | Mzo 2018 - Nov 2025 "},{ titulo: "Nuevo Colegio Glew", descripcion: "Primaria | Mzo 2011 - Dic 2018"  }, { titulo: "Google Grasshopper", descripcion: "Curso de programacion | Nov 2021 - Dic 2021 " } ]
   
   const reconocimientos = [
+    { titulo: "Mayor nota promedio en graduacion", descripcion: "Obtuve una nota promedio de 10 en la E.E.S.T N°2." },
     { titulo: "Casa de la Cultura", descripcion: "Participe 2 veces de la casa de la cultura y los eventos de innovación." },
     { titulo: "Olimpiadas nacionales INET 2025", descripcion: "Participe en las olimpiadas nacionales de la INET junto a un grupo de 5 integrantes." },
     { titulo: "Olimpiadas de programación UNSAM", descripcion: "Participe en la olimpiada de programación de 2025 de la Universidad de San Martín." },
@@ -33,7 +34,7 @@ const habilidades = [
 ---
 
 <Main>
-  <div class="dotted-background min-h-svh w-full">
+  <div class="max-md:p-10 dotted-background min-h-svh w-full">
     <div class="container mx-auto py-20">
       <h1 class="  text-5xl font-bold uppercase">Acerca de mi</h1>
       <div class="my-12 h-1 w-20 border-2 border-primary"></div>
@@ -171,7 +172,7 @@ const habilidades = [
 
 
       <!-- Habilidades -->
-<div class="grid gap-6 h-fit pb-20 container mx-auto py-20">
+<div class="max-md:p-10 grid gap-6 h-fit pb-20 container mx-auto py-20">
         <span class="flex items-center gap-3 mb-8">
           <FlaskIcon weight="fill" className="fill-primary" size={24} />
 	  <h3 class="  text-2xl font-bold uppercase">Habilidades Tecnicas</h3>
