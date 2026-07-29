@@ -1,0 +1,90 @@
+export const locales = ["es", "en"] as const
+
+export type Locale = (typeof locales)[number]
+export type LocalizedText = Record<Locale, string>
+
+export type Project = {
+  readonly slug: string
+  readonly name: string
+  readonly description: LocalizedText
+  readonly tags: readonly string[]
+  readonly image: string
+  readonly repository?: string
+  readonly website?: string
+  readonly featured: boolean
+}
+
+export type TimelineEntry = {
+  readonly date: string
+  readonly title: LocalizedText
+  readonly description: LocalizedText
+  readonly tags: readonly string[]
+}
+
+export const portfolio = {
+  name: "Gabriel Solotorevsky",
+  role: {
+    es: "Desarrollador de software que construye sistemas con intención.",
+    en: "Software developer building systems with intention.",
+  },
+  introduction: {
+    es: "Diseño experiencias web, automatizaciones e infraestructura que convierten ideas complejas en productos claros.",
+    en: "I design web experiences, automations, and infrastructure that turn complex ideas into clear products.",
+  },
+  status: {
+    label: { es: "Ahora", en: "Now" },
+    title: { es: "Construyendo sistemas y explorando agentes", en: "Building systems and exploring agents" },
+    detail: {
+      es: "Profundizando en Rust, sistemas distribuidos, gráficos y agentes especializados.",
+      en: "Going deeper on Rust, distributed systems, graphics, and specialized agents.",
+    },
+  },
+  services: [
+    { title: { es: "Experiencias web", en: "Web experiences" }, detail: { es: "Interfaces rápidas y expresivas con Astro, React y Vue.", en: "Fast, expressive interfaces with Astro, React, and Vue." } },
+    { title: { es: "Automatización", en: "Automation" }, detail: { es: "Flujos confiables que eliminan trabajo repetitivo.", en: "Reliable flows that remove repetitive work." } },
+    { title: { es: "Infraestructura", en: "Infrastructure" }, detail: { es: "Sistemas cloud-native, contenedores y operaciones Linux.", en: "Cloud-native systems, containers, and Linux operations." } },
+  ],
+  projects: [
+    {
+      slug: "arcteto", name: "Arcteto", image: "/arcteto.svg", featured: true,
+      description: { es: "Una distribución Arch Linux enfocada en eficiencia, desarrollo y herramientas personales.", en: "An Arch Linux distribution focused on efficiency, development, and personal tooling." },
+      tags: ["Linux", "Arch", "Systems"], repository: "https://github.com/Gonanf/arcteto",
+    },
+    {
+      slug: "kateto", name: "Kateto", image: "/kateto.svg", featured: true,
+      description: { es: "Un ecosistema de agentes y herramientas para automatizar procesos con intervención humana.", en: "An ecosystem of agents and tools for human-in-the-loop automation." },
+      tags: ["LLM", "Agents", "Automation"],
+    },
+    {
+      slug: "sherut", name: "Sherut", image: "/sherut.svg", featured: true,
+      description: { es: "Automatización de seguimiento de clientes y campañas con N8N y Astro.", en: "Client and campaign follow-up automation with N8N and Astro." },
+      tags: ["N8N", "Astro", "Automation"],
+    },
+  ] satisfies readonly Project[],
+  timeline: [
+    { date: "2026—Now", title: { es: "Freelancer Full Stack", en: "Freelance Full-Stack Developer" }, description: { es: "Diseño productos web, automatizaciones e infraestructura para clientes y proyectos propios.", en: "Designing web products, automations, and infrastructure for clients and personal projects." }, tags: ["Astro", "Cloudflare", "Automation"] },
+    { date: "2025", title: { es: "Técnico en Programación", en: "Programming Technician" }, description: { es: "Graduado con promedio 10/10 y participación en experiencias de innovación y programación.", en: "Graduated with a 10/10 average and active in innovation and programming experiences." }, tags: ["Education", "INET", "UNSAM"] },
+    { date: "2025", title: { es: "Sherut", en: "Sherut" }, description: { es: "Construí automatizaciones de seguimiento de clientes y campañas.", en: "Built client and campaign follow-up automations." }, tags: ["N8N", "Astro"] },
+    { date: "2018—2025", title: { es: "Aprendizaje autodidacta", en: "Self-directed learning" }, description: { es: "Profundicé en programación, Linux, diseño de sistemas y herramientas open source.", en: "Went deep on programming, Linux, systems design, and open-source tooling." }, tags: ["Linux", "Systems", "Open source"] },
+  ] satisfies readonly TimelineEntry[],
+  socials: [
+    { label: "GitHub", href: "https://github.com/Gonanf" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/gabriel-solotorevsky-35524431b" },
+    { label: "YouTube", href: "https://www.youtube.com/channel/UCllNy6G6V8WgzgXguloZYiw" },
+  ],
+} as const
+
+export const ui: Record<Locale, Record<string, string>> = {
+  es: { home: "Inicio", about: "Sobre mí", projects: "Proyectos", contact: "Contacto", blog: "Blog", viewWork: "Ver proyectos", startProject: "Hablemos", services: "Lo que hago", selectedWork: "Trabajo seleccionado", readWriting: "Leer el blog", status: "Estado actual", menu: "Abrir menú", theme: "Cambiar tema", language: "Cambiar idioma", backHome: "Volver al portafolio" },
+  en: { home: "Home", about: "About", projects: "Projects", contact: "Contact", blog: "Blog", viewWork: "View projects", startProject: "Let's talk", services: "What I do", selectedWork: "Selected work", readWriting: "Read the blog", status: "Current status", menu: "Open menu", theme: "Change theme", language: "Change language", backHome: "Back to portfolio" },
+}
+
+export function getLocale(value: string | undefined): Locale {
+  return value === "en" ? "en" : "es"
+}
+
+export function route(locale: Locale, path = ""): string {
+  const suffix = path.replace(/^\//, "")
+  const prefix = locale === "en" ? "/en" : ""
+  return suffix ? `${prefix}/${suffix}` : `${prefix}/` || "/"
+}

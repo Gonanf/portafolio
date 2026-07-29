@@ -1,35 +1,35 @@
 ---
-import { Button } from "@workspace/ui/components/button"
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-  } from "@workspace/ui/components/drawer"
-  import Navigation from "./navigation.tsx"
-  import { ListIcon, XIcon } from "@phosphor-icons/react"
-  import DrawerWrapper from "./drawer-wrapper.tsx"
+import { route, ui, type Locale } from "@/content/portfolio"
+const { locale } = Astro.props as { locale: Locale }
+const copy = ui[locale]
+const nav = [
+  [copy.home, route(locale)], [copy.about, route(locale, "sobre")], [copy.projects, route(locale, "proyectos")], [copy.contact, route(locale, "contactos")], [copy.blog, route(locale, "blog")],
+] as const
+const alternative = locale === "es" ? "en" : "es"
+const alternatePath = Astro.url.pathname.replace(/^\/en(?=\/|$)/, "") || "/"
+const alternateHref = locale === "es" ? `/en${alternatePath}` : alternatePath
 ---
 
-<header
-  class="sticky top-0 z-50 border-b-2 border-dotted border-border bg-card/50 backdrop-blur-md"
->
-  <nav class="container mx-auto flex flex-row justify-between items-center p-5">
-    <a
-      href="/"
-      class="scroll-m-20 text-2xl font-extrabold tracking-tight text-balance text-primary"
-    >
-      SOLOTOREVSKY_GABRIEl
-    </a>
-	    <div class="hidden md:flex">
-		    <Navigation/>
-	    </div>
-	<div class="md:hidden">
-		<DrawerWrapper client:load/>
-	</div>
-	  </nav>
+<header class="site-header">
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="wordmark" href={route(locale)} aria-label={copy.home}>GS<span>_</span></a>
+    <div class="nav-links">
+      {nav.map(([label, href]) => <a href={href}>{label}</a>)}
+    </div>
+    <div class="nav-actions">
+      <a class="locale-link" href={alternateHref} lang={alternative}>{alternative.toUpperCase()}</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label={copy.theme} title={copy.theme}>
+        <span aria-hidden="true">◐</span>
+      </button>
+    </div>
+  </nav>
 </header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]")
+  toggle?.addEventListener("click", () => {
+    const dark = !document.documentElement.classList.contains("dark")
+    document.documentElement.classList.toggle("dark", dark)
+    document.cookie = `portfolio-theme=${dark ? "dark" : "light"}; path=/; max-age=31536000; SameSite=Lax`
+  })
+</script>

@@ -3,8 +3,6 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -32,4 +30,3 @@ export default function DrawerWrapper(){
   </DrawerContent>
 </Drawer>)
 }
-

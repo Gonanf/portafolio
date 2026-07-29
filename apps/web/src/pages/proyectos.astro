@@ -1,59 +1,12 @@
 ---
 import Main from "@/layouts/main.astro"
-import Card from "@/components/card.astro"
-import { Button } from "@workspace/ui/components/button"
-import { GithubLogoIcon, GlobeSimpleIcon } from "@phosphor-icons/react"
-
-const proyectos = [
-{img: "/arcteto.svg",titulo: "Arcteto",descripcion: "Una distribucion de Arch Linux tecnica, enfocada en la eficiencia, el desarrollo de software y mi ecosistema de scripts / herramientas", tags: ["Sistemas operativos","Linux","Arch Linux"],url: "https://github.com/Gonanf/arcteto"},
-{img: "/kateto.svg",titulo: "Kateto",descripcion: "Un ecosistema de agentes, subagentes y herramientas para automatizar procesos con intervencion humana y la asistencia para el desarrollo y estudio de software.", tags: ["LLM","Agentes","Ecosistema","Conversacional"]},
-{img: "/sherut.svg",titulo: "Sherut (Automatizacion)",descripcion: "Un sistema de automatizacion en N8N con un frontend en Astro que permite realizar seguimientos de clientes / campañas de marketing sin tener mucha friccion del lado del usuario y cliente.", tags: ["Automatizacion","N8N"]},
-]
+import { getLocale, portfolio, ui } from "@/content/portfolio"
+const locale = getLocale(Astro.props.locale)
+const copy = ui[locale]
 ---
-
-<Main>
-
-	<div class="dotted-background py-32 max-md:p-10">
-		<div class="container mx-auto">
-		<h1 class="  text-5xl font-bold uppercase">Mis Proyectos</h1>
-		<div class="my-12 h-1 w-20 border-2 border-primary"></div>
-
-		<p class="  text-lg text-muted-foreground mb-16">Realize multiples proyectos, pruebas y productos, estos son los que considero los mejores.</p>
-
-		<div class="grid md:grid-cols-3 gap-6">
-		{ proyectos.map((p) => (
-		<Card animate="true">
-		<div slot="body">
-			<img src={p.img} class="mb-5 md:w-full max-md:container h-50 self-center "/>
-		<h3 class="text-lg font-bold">{p.titulo}</h3>
-		<p class="text-base text-muted-foreground">{p.descripcion}</p>
-		<span class="flex gap-4">
-			{p.tags.map((t) => (<p class="text-xs text-secondary-foreground bg-secondary p-2 rounded-full text-center border-2 border-dotted">{t}</p>))}
-		</span>
-
-		{ p["url"] &&
-		<Button>
-			<a href={p.url} class="flex" >
-				<GithubLogoIcon />
-				Github
-			</a>
-		</Button>
-		}
-
-		{ p["pagina"] &&
-		<Button>
-			<a href={p.pagina} class="flex" >
-				<GlobeSimpleIcon />
-				Pagina
-			</a>
-		</Button>
-		}
-		</div>
-		</Card>
-		))}
-
-		</div>
-		</div>
-	</div>
-	
+<Main locale={locale} title={`${copy.projects} — Gabriel Solotorevsky`}>
+  <section class="page-hero page-hero-rich"><p class="eyebrow" data-hero-line>{copy.projects}</p><h1 data-hero-line>{locale === "es" ? "Sistemas que dejan huella." : "Systems that leave a mark."}</h1><p data-hero-line>{locale === "es" ? "Una selección de productos, herramientas y experimentos que conectan software, automatización e infraestructura." : "A selection of products, tools, and experiments that connect software, automation, and infrastructure."}</p></section>
+  <section class="project-showcase">
+    {portfolio.projects.map((project, index) => <article class:list={["project-feature", index % 2 === 1 && "project-feature-reverse"]} data-reveal><div class="project-art"><img src={project.image} alt="" width="240" height="160" loading="lazy" /></div><div class="project-copy"><p class="eyebrow">{project.tags.join(" / ")}</p><h2>{project.name}</h2><p>{project.description[locale]}</p>{project.repository && <a class="action" data-magnetic href={project.repository} target="_blank" rel="noreferrer">GitHub ↗</a>}</div></article>)}
+  </section>
 </Main>

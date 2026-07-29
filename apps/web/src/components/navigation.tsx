@@ -1,23 +1,22 @@
 import { Button } from "@workspace/ui/components/button"
 
-	export default function Navigation({className}:{className: string}){
+export default function Navigation({className}:{className: string}){
 
 	return (
-<div class={className}>
+<div className={className}>
       <Button variant="ghost">
-        <a href="/" class="text-base font-thin">INICIO</a>
+        <a href="/" className="text-base font-thin">INICIO</a>
       </Button>
       <Button variant="ghost">
-        <a href="/sobre" class="text-base font-thin">SOBRE MI</a>
-      </Button>
-
-      <Button variant="ghost">
-        <a href="/proyectos" class="text-base font-thin">PROYECTOS</a>
+        <a href="/sobre" className="text-base font-thin">SOBRE MI</a>
       </Button>
 
       <Button variant="ghost">
-        <a href="/contactos" class="text-base font-thin">CONTACTOS</a>
+        <a href="/proyectos" className="text-base font-thin">PROYECTOS</a>
+      </Button>
+
+      <Button variant="ghost">
+        <a href="/contactos" className="text-base font-thin">CONTACTOS</a>
       </Button>
     </div>)
 }
-

@@ -3,23 +3,35 @@ import "@workspace/ui/globals.css"
 import "@/styles/custom.css"
 import Header from "@/components/header.astro"
 import Footer from "@/components/footer.astro"
-import { Toaster } from "@workspace/ui/components/sonner"
-import { ClientRouter } from "astro:transitions"
+import { PageMotion } from "@/components/page-motion"
+import { getLocale, type Locale } from "@/content/portfolio"
+
+const locale: Locale = getLocale(Astro.props.locale)
+const title = Astro.props.title ?? "Gabriel Solotorevsky — Software developer"
+const description = Astro.props.description ?? "Software, automation, and infrastructure by Gabriel Solotorevsky."
 ---
 
-<html lang="es">
+<!doctype html>
+<html lang={locale} data-locale={locale}>
   <head>
-    <meta name="generator" content={Astro.generator} />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#09090b" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Portafolio</title>
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        const match = document.cookie.match(/(?:^|; )portfolio-theme=([^;]+)/)
+        const theme = match?.[1] ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+        document.documentElement.classList.toggle("dark", theme === "dark")
+      })()
+    </script>
   </head>
-  <body class="font-mono overflow-x-hidden">
-    <Header />
-    <slot />
-    <Footer />
-    <Toaster client:load />
+  <body>
+    <Header locale={locale} />
+    <main id="main-content"><slot /></main>
+    <Footer locale={locale} />
+    <PageMotion client:only="react" />
   </body>
-  <ClientRouter />
 </html>

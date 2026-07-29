@@ -1,164 +1,49 @@
 ---
 import Main from "@/layouts/main.astro"
-import Card from "@/components/card.astro"
-import { Button } from "@workspace/ui/components/button"
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@workspace/ui/components/hover-card"
-import {
-  ArrowRightIcon,
-  ApertureIcon,
-  CodeIcon,
-  AtomIcon,
-  RobotIcon,
-  TimerIcon,
-  CloudIcon,
-  CpuIcon,
-} from "@phosphor-icons/react"
+import { MotionField } from "@/components/motion-field"
+import { getLocale, portfolio, route, ui } from "@/content/portfolio"
+const locale = getLocale(Astro.props.locale)
+const copy = ui[locale]
+const featured = portfolio.projects.filter((project) => project.featured)
 ---
 
-<Main>
-  <!-- Introduccion -->
-  <div
-    class="dotted-background max-md:p-10 flex min-h-svh w-full border-b-2 border-dotted py-32"
-  >
-    <div class="container mx-auto">
-      <div class="md:flex justify-between">
-        <div class="flex flex-col gap-6">
-          <div
-            class="w-fit border-2 border-dotted bg-accent/50 p-2 font-bold text-secondary-foreground uppercase"
-          >
-            <h1 class="text-center">¡Hola! Soy Gabriel Solotorevsky</h1>
-          </div>
-          <h1 class="text-2xl md:text-5xl font-extrabold text-foreground uppercase">
-            Desarrollador de software Full Stack
-          </h1>
-          <p
-            class="mt-6 border-l-2 border-dotted pl-6 leading-relaxed text-muted-foreground italic"
-          >
-            Realicé
-            <font class="text-lg font-extrabold">+60</font>
-            proyectos publicados como Desarrollador de Software.<br />Mi
-            formación técnica en Programación la refuerzo con <font
-              class="text-lg font-extrabold">+5</font
-            > años de aprendizaje autodidacta.<br />Construyo sistemas
-            escalables con frameworks modernos y soluciones cloud-native.<br
-            />Me desenvuelvo bien bajo presión, me adapto rápido a nuevas
-            tecnologías y constantemente evoluciono mi forma de trabajar.
-          </p>
-
-          <Button
-            className="w-fit border-2 border-dotted bg-primary p-7 text-lg text-primary-foreground uppercase hover:bg-primary/80"
-          >
-            <a href="/proyectos">Ver mis proyectos</a><ArrowRightIcon
-              className="size-8"
-            />
-          </Button>
-          <Button
-            className="w-fit border-2 border-dotted bg-accent/50 p-7 text-lg text-secondary-foreground uppercase hover:bg-accent/30"
-            variant="default"><a href="/contactos">Contactame</a></Button
-          >
-        </div>
-        <div class="flex items-center max-md:hidden">
-          <div class="relative">
-            <img
-              src="/portada.jpeg"
-              class="aspect-square w-full border-2 border-dotted object-cover p-2 lg:w-lg"
-            />
-            <ApertureIcon
-              className="absolute -top-3 -left-3 rounded-full border-2 border-dotted bg-background fill-accent-foreground p-2"
-              size="48"
-            />
-          </div>
-        </div>
+<Main locale={locale}>
+  <section class="hero reveal-root">
+    <div class="hero-copy">
+      <p class="eyebrow">{portfolio.name} / Buenos Aires</p>
+      <h1>{portfolio.role[locale]}</h1>
+      <p class="hero-intro">{portfolio.introduction[locale]}</p>
+      <div class="hero-actions">
+        <a class="action action-primary magnetic" href={route(locale, "proyectos")}>{copy.viewWork} <span>↗</span></a>
+        <a class="action" href={route(locale, "contactos")}>{copy.startProject}</a>
       </div>
     </div>
-  </div>
+    <div class="hero-art"><MotionField client:only="react" /><p>CODE<br />WITH<br />GRAVITY</p></div>
+  </section>
 
-  <!-- Lo que hago -->
-  <div class="py-20 max-md:p-10">
-    <h1 class="text-center text-4xl font-extrabold uppercase">Lo que hago</h1>
-    <div class="container mx-auto mt-10 grid md:grid-cols-3 gap-15">
-      <!-- Desarrollo web -->
-      <Card
-        animate={true}
-        className="relative w-fit border-2 border-dotted bg-card p-5"
-      >
-        <div slot="body">
-          <CodeIcon
-            className="mb-4 border-2 border-dotted bg-primary/10 fill-primary p-2"
-            size="48"
-          />
-          <h2 class="mb-3 text-xl font-bold text-foreground uppercase">
-            Desarrollo web
-          </h2>
-          <p class="text-muted-foreground">
-            Realizo paginas web rapidas y adaptadas a las necesidades modernas
-            utilizando Nuxt, Astro, Next.js, Vue, React y entre otras
-            herramientas.
-          </p>
-        </div>
+  <section class="status-band content-section" aria-labelledby="status-title">
+    <p class="eyebrow">{portfolio.status.label[locale]}</p>
+    <div><h2 id="status-title">{portfolio.status.title[locale]}</h2><p>{portfolio.status.detail[locale]}</p></div>
+    <span class="live-dot" aria-label="Active" />
+  </section>
 
-        <AtomIcon
-          className="absolute -top-4 -left-4 rounded-full border-2 border-dotted bg-background fill-accent-foreground p-2"
-          size="48"
-          slot="lu-icon"
-        />
-      </Card>
-
-      <!-- Automatizaciones -->
-      <Card
-        animate={true}
-        className="relative w-fit border-2 border-dotted bg-card p-5"
-      >
-        <div slot="body">
-          <RobotIcon
-            className="mb-4 border-2 border-dotted bg-primary/10 fill-primary p-2"
-            size="48"
-          />
-          <h2 class="mb-3 text-xl font-bold text-foreground uppercase">
-            Automatizaciones
-          </h2>
-          <p class="text-muted-foreground">
-            Realize automatizaciones con N8N y workers de varios lenguajes que
-            aumentaron la calidad, eficiencia y alcance de los procesos que me
-            presentaron.
-          </p>
-        </div>
-        <TimerIcon
-          className="absolute -bottom-4 left-1/2 -translate-x-1/2 transform rounded-full border-2 border-dotted bg-background fill-accent-foreground p-2"
-          size="48"
-          slot="cb-icon"
-        />
-      </Card>
-
-      <!-- Devops -->
-      <Card
-        animate={true}
-        className="relative w-fit border-2 border-dotted bg-card p-5"
-      >
-        <div slot="body">
-          <CloudIcon
-            className="mb-4 border-2 border-dotted bg-primary/10 fill-primary p-2"
-            size="48"
-          />
-          <h2 class="mb-3 text-lg font-bold text-foreground uppercase">
-            DevOps
-          </h2>
-          <p class="text-muted-foreground">
-            Estoy acostumbrado a resolver problemas en servidores de Linux,
-            locales, remotos o distribuidos.<br />Tengo experiencia en
-            contenedores Docker y en Docker Compose.
-          </p>
-        </div>
-        <CpuIcon
-          className="absolute -top-4 -right-4 rounded-full border-2 border-dotted bg-background fill-accent-foreground p-2"
-          size="48"
-          slot="ru-icon"
-        />
-      </Card>
+  <section class="content-section services" aria-labelledby="services-title">
+    <div class="section-head"><p class="eyebrow">01 / {copy.services}</p><h2 id="services-title">Ideas that need<br />to become real.</h2></div>
+    <div class="service-grid">
+      {portfolio.services.map((service, index) => <article class="service-card"><span>0{index + 1}</span><h3>{service.title[locale]}</h3><p>{service.detail[locale]}</p></article>)}
     </div>
-  </div>
+  </section>
+
+  <section class="content-section work" aria-labelledby="work-title">
+    <div class="section-head"><p class="eyebrow">02 / {copy.selectedWork}</p><a class="text-link" href={route(locale, "proyectos")}>{copy.viewWork} ↗</a></div>
+    <h2 id="work-title">Systems with<br /><em>personality.</em></h2>
+    <div class="project-grid">
+      {featured.map((project, index) => <article class:list={["project-card", index === 0 && "project-card-large"]}>
+        <img src={project.image} alt="" loading="lazy" />
+        <div><p>{project.tags.join(" · ")}</p><h3>{project.name}</h3><span>{project.description[locale]}</span></div>
+      </article>)}
+    </div>
+  </section>
+
+  <section class="blog-teaser content-section"><p class="eyebrow">03 / {copy.blog}</p><h2>{locale === "es" ? "Notas sobre construir para la web." : "Notes on building for the web."}</h2><a class="action action-primary" href={route(locale, "blog")}>{copy.readWriting} <span>↗</span></a></section>
 </Main>
