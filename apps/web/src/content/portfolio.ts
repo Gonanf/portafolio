@@ -7,7 +7,9 @@ export type Project = {
   readonly slug: string
   readonly name: string
   readonly description: LocalizedText
+  readonly detail: LocalizedText
   readonly tags: readonly string[]
+  readonly techStack: readonly string[]
   readonly image: string
   readonly repository?: string
   readonly website?: string
@@ -48,17 +50,20 @@ export const portfolio = {
     {
       slug: "arcteto", name: "Arcteto", image: "/arcteto.svg", featured: true,
       description: { es: "Una distribución Arch Linux enfocada en eficiencia, desarrollo y herramientas personales.", en: "An Arch Linux distribution focused on efficiency, development, and personal tooling." },
-      tags: ["Linux", "Arch", "Systems"], repository: "https://github.com/Gonanf/arcteto",
+      detail: { es: "Un entorno de trabajo reproducible que convierte decisiones de sistema, herramientas y flujo personal en una experiencia coherente.", en: "A reproducible working environment that turns system choices, tools, and personal workflow into one coherent experience." },
+      tags: ["Linux", "Arch", "Systems"], techStack: ["Arch Linux", "Bash", "Systemd", "Git"], repository: "https://github.com/Gonanf/arcteto",
     },
     {
       slug: "kateto", name: "Kateto", image: "/kateto.svg", featured: true,
       description: { es: "Un ecosistema de agentes y herramientas para automatizar procesos con intervención humana.", en: "An ecosystem of agents and tools for human-in-the-loop automation." },
-      tags: ["LLM", "Agents", "Automation"],
+      detail: { es: "Explora agentes especializados, interfaces de revisión y herramientas que mantienen a las personas dentro de los puntos de decisión importantes.", en: "Explores specialized agents, review interfaces, and tools that keep people inside consequential decision points." },
+      tags: ["LLM", "Agents", "Automation"], techStack: ["TypeScript", "LLMs", "Cloudflare", "Workflows"],
     },
     {
       slug: "sherut", name: "Sherut", image: "/sherut.svg", featured: true,
       description: { es: "Automatización de seguimiento de clientes y campañas con N8N y Astro.", en: "Client and campaign follow-up automation with N8N and Astro." },
-      tags: ["N8N", "Astro", "Automation"],
+      detail: { es: "Un sistema para convertir tareas comerciales repetitivas en flujos observables, consistentes y fáciles de ajustar.", en: "A system that turns repetitive commercial work into observable, consistent, and easy-to-adjust flows." },
+      tags: ["N8N", "Astro", "Automation"], techStack: ["N8N", "Astro", "APIs", "CRM"],
     },
   ] satisfies readonly Project[],
   timeline: [

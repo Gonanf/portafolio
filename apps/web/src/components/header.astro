@@ -1,9 +1,10 @@
 ---
 import { route, ui, type Locale } from "@/content/portfolio"
+import DrawerWrapper from "@/components/drawer-wrapper"
 const { locale } = Astro.props as { locale: Locale }
 const copy = ui[locale]
 const nav = [
-  [copy.home, route(locale)], [copy.about, route(locale, "sobre")], [copy.projects, route(locale, "proyectos")], [copy.contact, route(locale, "contactos")], [copy.blog, route(locale, "blog")],
+  { label: copy.home, href: route(locale) }, { label: copy.about, href: route(locale, "sobre") }, { label: copy.projects, href: route(locale, "proyectos") }, { label: copy.contact, href: route(locale, "contactos") },
 ] as const
 const alternative = locale === "es" ? "en" : "es"
 const alternatePath = Astro.url.pathname.replace(/^\/en(?=\/|$)/, "") || "/"
@@ -14,13 +15,14 @@ const alternateHref = locale === "es" ? `/en${alternatePath}` : alternatePath
   <nav class="site-nav" aria-label="Primary navigation">
     <a class="wordmark" href={route(locale)} aria-label={copy.home}>GS<span>_</span></a>
     <div class="nav-links">
-      {nav.map(([label, href]) => <a href={href}>{label}</a>)}
+      {nav.map(({ label, href }) => <a href={href}>{label}</a>)}
     </div>
     <div class="nav-actions">
       <a class="locale-link" href={alternateHref} lang={alternative}>{alternative.toUpperCase()}</a>
       <button class="theme-toggle" type="button" data-theme-toggle aria-label={copy.theme} title={copy.theme}>
         <span aria-hidden="true">◐</span>
       </button>
+      <div class="mobile-menu"><DrawerWrapper client:load links={nav} menuLabel={copy.menu} /></div>
     </div>
   </nav>
 </header>

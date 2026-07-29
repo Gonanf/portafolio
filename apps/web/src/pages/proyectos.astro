@@ -1,12 +1,11 @@
 ---
 import Main from "@/layouts/main.astro"
+import { ProjectGallery } from "@/components/project-gallery"
 import { getLocale, portfolio, ui } from "@/content/portfolio"
 const locale = getLocale(Astro.props.locale)
 const copy = ui[locale]
 ---
 <Main locale={locale} title={`${copy.projects} — Gabriel Solotorevsky`}>
-  <section class="page-hero page-hero-rich"><p class="eyebrow" data-hero-line>{copy.projects}</p><h1 data-hero-line>{locale === "es" ? "Sistemas que dejan huella." : "Systems that leave a mark."}</h1><p data-hero-line>{locale === "es" ? "Una selección de productos, herramientas y experimentos que conectan software, automatización e infraestructura." : "A selection of products, tools, and experiments that connect software, automation, and infrastructure."}</p></section>
-  <section class="project-showcase">
-    {portfolio.projects.map((project, index) => <article class:list={["project-feature", index % 2 === 1 && "project-feature-reverse"]} data-reveal><div class="project-art"><img src={project.image} alt="" width="240" height="160" loading="lazy" /></div><div class="project-copy"><p class="eyebrow">{project.tags.join(" / ")}</p><h2>{project.name}</h2><p>{project.description[locale]}</p>{project.repository && <a class="action" data-magnetic href={project.repository} target="_blank" rel="noreferrer">GitHub ↗</a>}</div></article>)}
-  </section>
+  <section class="page-hero"><p class="eyebrow" data-hero-line>{copy.projects}</p><h1 data-split-text>{locale === "es" ? "Proyectos con comportamiento propio." : "Projects with a mind of their own."}</h1><p data-hero-line>{locale === "es" ? "Abrí cada proyecto para ver su contexto, stack y enlaces." : "Open every project to see its context, stack, and links."}</p></section>
+  <section class="project-page-grid"><ProjectGallery client:load locale={locale} projects={portfolio.projects} /></section>
 </Main>

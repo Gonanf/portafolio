@@ -1,12 +1,12 @@
 ---
 import Main from "@/layouts/main.astro"
+import { Timeline } from "@/components/timeline"
 import { getLocale, portfolio, ui } from "@/content/portfolio"
 const locale = getLocale(Astro.props.locale)
 const copy = ui[locale]
 const skills = ["Rust", "TypeScript", "Python", "Astro", "React", "Cloudflare", "Docker", "Linux"]
 ---
 <Main locale={locale} title={`${copy.about} — Gabriel Solotorevsky`}>
-  <section class="page-hero page-hero-rich"><p class="eyebrow" data-hero-line>{copy.about}</p><h1 data-split-text>{locale === "es" ? "Aprendo para construir mejor." : "I learn to build better."}</h1><p data-hero-line>{locale === "es" ? "Desarrollador autodidacta, técnico en programación y constructor de sistemas. Me interesan especialmente las automatizaciones, los gráficos, Linux y los agentes especializados." : "Self-taught developer, programming technician, and systems builder. I am especially interested in automation, graphics, Linux, and specialized agents."}</p></section>
-  <section class="info-rail" data-reveal><article><p class="eyebrow">{copy.status}</p><h2>{portfolio.status.title[locale]}</h2><p>{portfolio.status.detail[locale]}</p></article><article><p class="eyebrow">Stack</p><div class="skill-cloud">{skills.map((skill) => <span>{skill}</span>)}</div></article></section>
-  <section class="timeline-section"><div class="timeline-heading" data-reveal><p class="eyebrow">{locale === "es" ? "Trayectoria" : "Timeline"}</p><h2 data-split-text>{locale === "es" ? "Proyectos, aprendizajes y capítulos." : "Projects, learning, and chapters."}</h2><p class="timeline-guide">{locale === "es" ? "Tocá, presioná Enter o arrastrá cada capítulo." : "Tap, press Enter, or drag each chapter."}</p></div><ol class="timeline"><svg class="timeline-thread" viewBox="0 0 12 1000" preserveAspectRatio="none" aria-hidden="true"><path data-timeline-path d="M 6 0 C 1 120 11 210 6 340 S 1 620 6 760 S 10 900 6 1000" /></svg>{portfolio.timeline.map((entry) => <li data-reveal><span class="timeline-date">{entry.date}</span><div class="timeline-card" data-timeline-card role="button" tabindex="0" aria-expanded="false"><p class="eyebrow">{entry.tags.join(" · ")}</p><h3>{entry.title[locale]}</h3><p>{entry.description[locale]}</p><span class="timeline-card-action" aria-hidden="true">{locale === "es" ? "explorar" : "explore"} ↗</span></div></li>)}</ol></section>
+  <section class="page-hero about-hero"><p class="eyebrow" data-hero-line>{copy.about}</p><h1 data-split-text>{locale === "es" ? "Aprendo para construir mejor." : "I learn to build better."}</h1><p data-hero-line>{locale === "es" ? "Desarrollador autodidacta, técnico en programación y constructor de sistemas." : "Self-taught developer, programming technician, and systems builder."}</p><div class="skill-cloud">{skills.map((skill) => <span>{skill}</span>)}</div></section>
+  <Timeline client:only="react" locale={locale} entries={portfolio.timeline} />
 </Main>

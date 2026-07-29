@@ -12,7 +12,6 @@ const copy = ui[locale]
   <div class="footer-meta">
     <p>{portfolio.name} · Buenos Aires</p>
     <div class="footer-links">
-      <a href={route(locale, "blog")}>{copy.blog}</a>
       {portfolio.socials.map((social) => <a href={social.href} target="_blank" rel="noreferrer">{social.label}</a>)}
     </div>
   </div>
