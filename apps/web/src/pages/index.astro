@@ -10,18 +10,18 @@ const featured = portfolio.projects.filter((project) => project.featured)
 <Main locale={locale}>
   <section class="hero reveal-root">
     <div class="hero-copy">
-      <p class="eyebrow">{portfolio.name} / Buenos Aires</p>
-      <h1>{portfolio.role[locale]}</h1>
-      <p class="hero-intro">{portfolio.introduction[locale]}</p>
+      <p class="eyebrow" data-hero-line>{portfolio.name} / Buenos Aires</p>
+      <h1 data-split-text>{portfolio.role[locale]}</h1>
+      <p class="hero-intro" data-hero-line>{portfolio.introduction[locale]}</p>
       <div class="hero-actions">
-        <a class="action action-primary magnetic" href={route(locale, "proyectos")}>{copy.viewWork} <span>↗</span></a>
-        <a class="action" href={route(locale, "contactos")}>{copy.startProject}</a>
+        <a class="action action-primary magnetic" data-magnetic href={route(locale, "proyectos")}>{copy.viewWork} <span>↗</span></a>
+        <a class="action" data-hero-line href={route(locale, "contactos")}>{copy.startProject}</a>
       </div>
     </div>
     <div class="hero-art"><MotionField client:only="react" /><p>CODE<br />WITH<br />GRAVITY</p></div>
   </section>
 
-  <section class="status-band content-section" aria-labelledby="status-title">
+  <section class="status-band content-section" aria-labelledby="status-title" data-reveal>
     <p class="eyebrow">{portfolio.status.label[locale]}</p>
     <div><h2 id="status-title">{portfolio.status.title[locale]}</h2><p>{portfolio.status.detail[locale]}</p></div>
     <span class="live-dot" aria-label="Active" />
@@ -30,7 +30,7 @@ const featured = portfolio.projects.filter((project) => project.featured)
   <section class="content-section services" aria-labelledby="services-title">
     <div class="section-head"><p class="eyebrow">01 / {copy.services}</p><h2 id="services-title">Ideas that need<br />to become real.</h2></div>
     <div class="service-grid">
-      {portfolio.services.map((service, index) => <article class="service-card"><span>0{index + 1}</span><h3>{service.title[locale]}</h3><p>{service.detail[locale]}</p></article>)}
+      {portfolio.services.map((service, index) => <article class="service-card" data-reveal><span>0{index + 1}</span><h3>{service.title[locale]}</h3><p>{service.detail[locale]}</p></article>)}
     </div>
   </section>
 
@@ -38,12 +38,12 @@ const featured = portfolio.projects.filter((project) => project.featured)
     <div class="section-head"><p class="eyebrow">02 / {copy.selectedWork}</p><a class="text-link" href={route(locale, "proyectos")}>{copy.viewWork} ↗</a></div>
     <h2 id="work-title">Systems with<br /><em>personality.</em></h2>
     <div class="project-grid">
-      {featured.map((project, index) => <article class:list={["project-card", index === 0 && "project-card-large"]}>
+      {featured.map((project, index) => <article class:list={["project-card", index === 0 && "project-card-large"]} data-reveal>
         <img src={project.image} alt="" loading="lazy" />
         <div><p>{project.tags.join(" · ")}</p><h3>{project.name}</h3><span>{project.description[locale]}</span></div>
       </article>)}
     </div>
   </section>
 
-  <section class="blog-teaser content-section"><p class="eyebrow">03 / {copy.blog}</p><h2>{locale === "es" ? "Notas sobre construir para la web." : "Notes on building for the web."}</h2><a class="action action-primary" href={route(locale, "blog")}>{copy.readWriting} <span>↗</span></a></section>
+  <section class="blog-teaser content-section" data-reveal><p class="eyebrow">{copy.blog}</p><h2 data-split-text>{locale === "es" ? "Notas sobre construir para la web." : "Notes on building for the web."}</h2><a class="action action-primary" data-magnetic href={route(locale, "blog")}>{copy.readWriting} <span>↗</span></a></section>
 </Main>
