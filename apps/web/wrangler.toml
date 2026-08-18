@@ -13,14 +13,14 @@ workers_dev = true
 directory = "./dist"
 not_found_handling = "404-page"
 
-# route temporarily disabled — deploy to workers_dev only
-# [route]
-# pattern = "solotorevskygabriel.com/*"
-# zone_name = "solotorevskygabriel.com"
+# Main domain route
+[route]
+pattern = "solotorevskygabriel.com/*"
+zone_name = "solotorevskygabriel.com"
 
 # Rewrite /blog/* to the blogs worker
 [[routes]]
-pattern = "*/blog*"
+pattern = "solotorevskygabriel.com/blog*"
 script = "portafolio-web-blogs"
 
 [env.staging]
