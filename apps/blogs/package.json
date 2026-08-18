@@ -11,7 +11,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "astro build && wrangler deploy",
+    "deploy": "bunx wrangler deploy",
     "typecheck": "astro check"
   },
   "dependencies": {

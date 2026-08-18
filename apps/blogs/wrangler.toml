@@ -1,0 +1,21 @@
+name = "portafolio-web-blogs"
+account_id = "c7f94ea5b5a8cea796b349b91303ae32"
+main = "./src/worker.ts"
+compatibility_date = "2026-02-24"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "my-emdash-site"
+database_id = "40d89804-5977-438c-8919-6c4a038c1c3e"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "my-emdash-media"
+
+[[kv_namespaces]]
+binding = "SESSION"
+id = "93b0a3411fe74dcbb7352c37f0a739a1"
+
+[triggers]
+crons = ["* * * * *"]

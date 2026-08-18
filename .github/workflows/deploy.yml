@@ -35,9 +35,6 @@ jobs:
     needs: ci
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/web
     steps:
       - uses: actions/checkout@v4
 
@@ -46,20 +43,22 @@ jobs:
       - name: Install Dependencies
         run: bun install --frozen-lockfile
 
-      - name: Deploy to Cloudflare Worker (portafolio-web)
+      - name: Build web production bundle
+        run: bun run build
+        working-directory: apps/web
+
+      - name: Deploy to Cloudflare Worker
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: deploy
+          workingDirectory: apps/web
 
   deploy-blogs:
     name: Deploy Blogs Worker (portafolio-web-blogs)
     needs: ci
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/blogs
     steps:
       - uses: actions/checkout@v4
 
@@ -68,8 +67,13 @@ jobs:
       - name: Install Dependencies
         run: bun install --frozen-lockfile
 
-      - name: Deploy to Cloudflare Worker (portafolio-web-blogs)
+      - name: Build blogs production bundle
+        run: bun run build
+        working-directory: apps/blogs
+
+      - name: Deploy to Cloudflare Worker
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: deploy --name portafolio-web-blogs
+          command: deploy
+          workingDirectory: apps/blogs
