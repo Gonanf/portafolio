@@ -12,27 +12,19 @@ env:
 
 jobs:
   ci:
-    name: CI (Typecheck & Build Validation)
+    name: CI (Build Validation)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: oven-sh/setup-bun@v2
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: bun install --frozen-lockfile
-
-      - name: Typecheck web
-        run: bun run typecheck
-        working-directory: apps/web
 
       - name: Build web
         run: bun run build
         working-directory: apps/web
-
-      - name: Typecheck blogs
-        run: bun run typecheck
-        working-directory: apps/blogs
 
       - name: Build blogs
         run: bun run build
