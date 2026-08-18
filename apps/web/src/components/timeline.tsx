@@ -64,6 +64,7 @@ export function Timeline({ locale, entries }: TimelineProps) {
           <span className="timeline-node-date">{entry.date}</span>
           <span className="timeline-node-title">{entry.title[locale]}</span>
           <span className="timeline-node-detail">{entry.description[locale]}</span>
+          {entry.subItems?.map((sub, i) => <span className="timeline-node-detail" key={i}>{sub[locale]}</span>)}
           <span className="timeline-node-tags">{entry.tags.join(" · ")}</span>
         </button>)}
       </div>
