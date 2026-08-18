@@ -3,7 +3,6 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [master]
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -12,8 +11,37 @@ env:
   CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
 jobs:
+  ci:
+    name: CI (Typecheck & Build Validation)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Typecheck web
+        run: bun run typecheck
+        working-directory: apps/web
+
+      - name: Build web
+        run: bun run build
+        working-directory: apps/web
+
+      - name: Typecheck blogs
+        run: bun run typecheck
+        working-directory: apps/blogs
+
+      - name: Build blogs
+        run: bun run build
+        working-directory: apps/blogs
+
   deploy-web:
-    name: Deploy Web (portafolio)
+    name: Deploy Web Worker (portafolio-web)
+    needs: ci
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,7 +63,9 @@ jobs:
           workingDirectory: apps/web
 
   deploy-blogs:
-    name: Deploy Blogs
+    name: Deploy Blogs Worker (portafolio-web-blogs)
+    needs: ci
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -49,9 +79,9 @@ jobs:
         run: bun run build
         working-directory: apps/blogs
 
-      - name: Deploy to Cloudflare Worker (portafolio-blogs)
+      - name: Deploy to Cloudflare Worker (portafolio-web-blogs)
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: deploy
+          command: deploy --name portafolio-web-blogs
           workingDirectory: apps/blogs
