@@ -4,6 +4,10 @@ main = "./src/worker.ts"
 compatibility_date = "2026-02-24"
 compatibility_flags = ["nodejs_compat"]
 
+[route]
+pattern = "solotorevskygabriel.com/blog*"
+zone_name = "solotorevskygabriel.com"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "my-emdash-site"
