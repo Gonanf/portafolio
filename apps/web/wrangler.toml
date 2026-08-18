@@ -18,6 +18,11 @@ not_found_handling = "404-page"
 # pattern = "solotorevskygabriel.com/*"
 # zone_name = "solotorevskygabriel.com"
 
+# Rewrite /blog/* to the blogs worker
+[[routes]]
+pattern = "*/blog*"
+script = "portafolio-web-blogs"
+
 [env.staging]
 name = "portafolio/web-staging"
 
