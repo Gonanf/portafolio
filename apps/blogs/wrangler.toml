@@ -5,8 +5,8 @@ compatibility_date = "2026-02-24"
 compatibility_flags = ["nodejs_compat"]
 
 [route]
-pattern = "solotorevskygabriel.com/blog*"
-zone_name = "solotorevskygabriel.com"
+pattern = "blog.solotorevskygabriel.com"
+custom_domain = true
 
 [[d1_databases]]
 binding = "DB"

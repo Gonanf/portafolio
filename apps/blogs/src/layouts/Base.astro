@@ -44,7 +44,7 @@ const { siteTitle, siteTagline, siteLogo } = resolveBlogSiteIdentity(await getSi
 // If title already includes site title (from getSeoMeta), use as-is
 const fullTitle = title.includes(siteTitle) ? title : `${title} — ${siteTitle}`;
 const locale = Astro.request.headers.get("x-portfolio-locale") === "en" ? "en" : "es";
-const prefix = locale === "en" ? "/en/blog" : "/blog";
+const prefix = "";
 const text = locale === "en"
 	? { home: "Portfolio", posts: "All posts", search: "Search writing", rss: "RSS", theme: "Change theme" }
 	: { home: "Portafolio", posts: "Todas las notas", search: "Buscar notas", rss: "RSS", theme: "Cambiar tema" };
@@ -108,7 +108,7 @@ const isLoggedIn = !!Astro.locals.user;
 		<EmDashBodyStart page={pageCtx} />
 		<header class="site-header">
 			<nav class="nav">
-				<a href={prefix} class="site-title">
+				<a href="/" class="site-title">
 					{siteLogo
 						? <img src={siteLogo.url} alt={siteLogo.alt || siteTitle} class="site-logo-img" />
 						: siteTitle
@@ -151,7 +151,7 @@ const isLoggedIn = !!Astro.locals.user;
 			<div class="footer-inner">
 				<div class="footer-grid">
 					<div class="footer-brand">
-						<a href={prefix} class="footer-logo">
+						<a href="/" class="footer-logo">
 							{siteLogo
 								? <img src={siteLogo.url} alt={siteLogo.alt || siteTitle} class="footer-logo-img" />
 								: siteTitle
@@ -339,14 +339,6 @@ const isLoggedIn = !!Astro.locals.user;
 				btn.addEventListener("click", () => {
 					setTheme(btn.dataset.theme || "system");
 				});
-			});
-
-			const blogPrefix = document.documentElement.lang === "en" ? "/en/blog" : "/blog";
-			document.querySelectorAll<HTMLAnchorElement>('a[href^="/"]').forEach((link) => {
-				const href = link.getAttribute("href");
-				if (href && !href.startsWith("/blog") && !href.startsWith("/en") && !href.startsWith("/_astro")) {
-					link.href = `${blogPrefix}${href}`;
-				}
 			});
 
 			// Listen for system preference changes

@@ -9,7 +9,6 @@ import { fileURLToPath } from "node:url";
 
 export default defineConfig({
   output: "server",
-  base: "/blog",
   adapter: cloudflare(),
   image: {
     layout: "constrained",

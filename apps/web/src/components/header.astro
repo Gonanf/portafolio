@@ -3,8 +3,9 @@ import { route, ui, type Locale } from "@/content/portfolio"
 import DrawerWrapper from "@/components/drawer-wrapper"
 const { locale } = Astro.props as { locale: Locale }
 const copy = ui[locale]
+const blogUrl = "https://blog.solotorevskygabriel.com"
 const nav = [
-  { label: copy.home, href: route(locale) }, { label: copy.about, href: route(locale, "sobre") }, { label: copy.projects, href: route(locale, "proyectos") }, { label: copy.blog, href: route(locale, "blog") }, { label: copy.contact, href: route(locale, "contactos") },
+  { label: copy.home, href: route(locale) }, { label: copy.about, href: route(locale, "sobre") }, { label: copy.projects, href: route(locale, "proyectos") }, { label: copy.blog, href: blogUrl }, { label: copy.contact, href: route(locale, "contactos") },
 ] as const
 const alternative = locale === "es" ? "en" : "es"
 const alternatePath = Astro.url.pathname.replace(/^\/en(?=\/|$)/, "") || "/"
