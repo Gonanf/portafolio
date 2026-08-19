@@ -6,7 +6,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const { pathname } = context.url
   if (!blogPath.test(pathname)) return next()
 
-  const locale = pathname.startsWith("/en") ? "/en" : ""
   const rest = pathname.replace(/^\/(?:en\/)?blog/, "")
-  return Response.redirect(`https://blog.solotorevskygabriel.com${locale}${rest}`, 301)
+  return Response.redirect(`https://blog.solotorevskygabriel.com${rest}`, 301)
 })
